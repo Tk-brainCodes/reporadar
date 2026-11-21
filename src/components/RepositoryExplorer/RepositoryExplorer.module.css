@@ -1,5 +1,5 @@
 .explorerSection {
-  padding: 104px 32px 112px;
+  padding: 112px 32px 120px;
   color: #000000;
   background: #e5e5e5;
 }
@@ -11,32 +11,32 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 28px;
-  margin-bottom: 34px;
+  margin-bottom: 44px;
 }
 
 .title {
   max-width: 18ch;
   margin: 0;
   color: #000000;
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
-  font-weight: 550;
-  letter-spacing: -0.05em;
-  line-height: 1.04;
+  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  font-weight: 560;
+  letter-spacing: -0.055em;
+  line-height: .99;
   text-wrap: balance;
 }
 
 .description {
-  max-width: 62ch;
-  margin: 14px 0 0;
-  color: rgba(0, 0, 0, 0.68);
-  font-size: 0.96rem;
-  line-height: 1.6;
+  max-width: 54ch;
+  margin: 18px 0 0;
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 .loadMoreWrapper { display: flex; justify-content: center; padding-top: 30px; }
 
 @media (max-width: 700px) {
-  .explorerSection { padding: 72px 22px 78px; }
-  .header { align-items: flex-start; flex-direction: column; gap: 18px; margin-bottom: 24px; }
+  .explorerSection { padding: 78px 22px 84px; }
+  .header { align-items: flex-start; flex-direction: column; gap: 18px; margin-bottom: 30px; }
   .title { font-size: clamp(2.2rem, 9vw, 3rem); }
 }

@@ -1,8 +1,8 @@
 .errorContainer {
-  padding: 4rem 1.5rem;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
+  padding: 4.5rem 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(20,33,61,.14);
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,23 +14,26 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: var(--color-surface-elevated);
-  border: 1px solid var(--color-border);
+  background-color: #14213d;
+  border: 1px solid rgba(20,33,61,.2);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
 }
 
+.errorIconWrapper svg { width: 26px; height: 26px; color: #fca311; }
+
 .errorTitle {
   font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
+  margin: 0;
+  font-weight: 650;
+  color: #14213d;
 }
 
 .errorDescription {
   font-size: 0.875rem;
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: rgba(0,0,0,.72);
   max-width: 460px;
 }

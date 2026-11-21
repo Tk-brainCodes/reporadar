@@ -1,30 +1,32 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 import { m, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import styles from "./Footer.module.css";
 
 const BUDDIES = [
-  { name: "smiling face", emoji: "😊", left: "2%", bottom: "4%", size: "clamp(76px, 10vw, 148px)" },
-  { name: "heart", emoji: "❤️", left: "15%", bottom: "0%", size: "clamp(60px, 7.8vw, 112px)" },
-  { name: "rocket", emoji: "🚀", left: "27%", bottom: "6%", size: "clamp(74px, 9vw, 132px)" },
-  { name: "sparkles", emoji: "✨", left: "39%", bottom: "1%", size: "clamp(62px, 8vw, 118px)" },
-  { name: "robot", emoji: "🤖", left: "50%", bottom: "4%", size: "clamp(86px, 11vw, 160px)" },
-  { name: "party popper", emoji: "🎉", left: "63%", bottom: "0%", size: "clamp(68px, 8.5vw, 126px)" },
-  { name: "star", emoji: "🌟", left: "75%", bottom: "5%", size: "clamp(68px, 9vw, 132px)" },
-  { name: "heart eyes", emoji: "😍", left: "87%", bottom: "1%", size: "clamp(76px, 10vw, 148px)" },
-  { name: "alien", emoji: "👾", left: "8%", bottom: "43%", size: "clamp(58px, 7vw, 102px)" },
-  { name: "computer", emoji: "💻", left: "34%", bottom: "44%", size: "clamp(60px, 7.5vw, 110px)" },
-  { name: "dizzy", emoji: "😵‍💫", left: "68%", bottom: "42%", size: "clamp(62px, 7.5vw, 112px)" },
-  { name: "disco ball", emoji: "🪩", left: "91%", bottom: "44%", size: "clamp(60px, 7.5vw, 110px)" },
+  { name: "smiling face", src: "/assets/smiling-face-with-smiling-eyes.webp", left: "2%", bottom: "4%", size: "clamp(76px, 10vw, 148px)" },
+  { name: "heart eyes", src: "/assets/smiling-face-with-heart-eyes.webp", left: "15%", bottom: "0%", size: "clamp(60px, 7.8vw, 112px)" },
+  { name: "party popper", src: "/assets/party-popper.webp", left: "27%", bottom: "6%", size: "clamp(74px, 9vw, 132px)" },
+  { name: "sparkles", src: "/assets/sparkles.webp", left: "39%", bottom: "1%", size: "clamp(62px, 8vw, 118px)" },
+  { name: "halo smile", src: "/assets/smiling-face-with-halo.webp", left: "50%", bottom: "4%", size: "clamp(86px, 11vw, 160px)" },
+  { name: "sunglasses smile", src: "/assets/smiling-face-with-sunglasses.webp", left: "63%", bottom: "0%", size: "clamp(68px, 8.5vw, 126px)" },
+  { name: "laughing cat", src: "/assets/cat-with-tears-of-joy.webp", left: "75%", bottom: "5%", size: "clamp(68px, 9vw, 132px)" },
+  { name: "grinning face", src: "/assets/grinning-face-with-smiling-eyes.webp", left: "87%", bottom: "1%", size: "clamp(76px, 10vw, 148px)" },
+  { name: "magic wand", src: "/assets/magic-wand.webp", left: "8%", bottom: "43%", size: "clamp(58px, 7vw, 102px)" },
+  { name: "trophy", src: "/assets/trophy.webp", left: "34%", bottom: "44%", size: "clamp(60px, 7.5vw, 110px)" },
+  { name: "confetti", src: "/assets/confetti-ball.webp", left: "68%", bottom: "42%", size: "clamp(62px, 7.5vw, 112px)" },
+  { name: "celebration", src: "/assets/fireworks.webp", left: "91%", bottom: "44%", size: "clamp(60px, 7.5vw, 110px)" },
 ];
 
-function FooterBuddy({ buddy, index, boundsRef, mouseX, mouseY, reduceMotion }) {
+function FooterBuddy({ buddy, index, boundsRef, buddyRefs, activeIndex, mouseX, mouseY, reduceMotion }) {
   const x = useSpring(0, { stiffness: 260, damping: 22 });
   const y = useSpring(0, { stiffness: 260, damping: 22 });
   const depth = 0.65 + index * 0.15;
-  const followX = useSpring(useTransform(mouseX, [-1, 1], [-16 * depth, 16 * depth]), { stiffness: 70, damping: 20 });
-  const followY = useSpring(useTransform(mouseY, [-1, 1], [-12 * depth, 12 * depth]), { stiffness: 70, damping: 20 });
+  const active = activeIndex === index;
+  const followX = useSpring(useTransform(mouseX, [-1, 1], active ? [-48 * depth, 48 * depth] : [0, 0]), { stiffness: 70, damping: 20 });
+  const followY = useSpring(useTransform(mouseY, [-1, 1], active ? [-38 * depth, 38 * depth] : [0, 0]), { stiffness: 70, damping: 20 });
 
   function handleKeyDown(event) {
     const step = event.shiftKey ? 32 : 16;
@@ -56,6 +58,7 @@ function FooterBuddy({ buddy, index, boundsRef, mouseX, mouseY, reduceMotion }) 
     <m.button
       type="button"
       className={styles.buddyButton}
+      ref={(node) => { buddyRefs.current[index] = node; }}
       style={{ left: buddy.left, bottom: buddy.bottom, "--buddy-size": buddy.size, x, y }}
       drag
       dragConstraints={boundsRef}
@@ -66,7 +69,7 @@ function FooterBuddy({ buddy, index, boundsRef, mouseX, mouseY, reduceMotion }) 
       whileHover={reduceMotion ? undefined : { scale: 1.035 }}
       onKeyDown={handleKeyDown}
       onClick={bounceOnActivate}
-      aria-label={`Drag ${buddy.name} RepoRadar character. Use arrow keys to move it.`}
+      aria-label={`Drag the ${buddy.name} emoji. Use arrow keys to move it.`}
     >
       <m.span
         className={styles.buddyDrop}
@@ -82,7 +85,7 @@ function FooterBuddy({ buddy, index, boundsRef, mouseX, mouseY, reduceMotion }) 
         }}
       >
         <m.span className={styles.buddyFollow} style={{ x: followX, y: followY }}>
-          <span className={styles.buddyEmoji} aria-hidden="true">{buddy.emoji}</span>
+          <Image className={styles.buddyEmoji} src={buddy.src} alt="" aria-hidden="true" draggable={false} width={320} height={320} loading="lazy" />
         </m.span>
       </m.span>
     </m.button>
@@ -91,18 +94,42 @@ function FooterBuddy({ buddy, index, boundsRef, mouseX, mouseY, reduceMotion }) 
 
 export function FooterPlayground() {
   const boundsRef = useRef(null);
+  const buddyRefs = useRef([]);
   const reduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   function updatePointer(event) {
     if (reduceMotion || event.pointerType === "touch" || !boundsRef.current) return;
     const bounds = boundsRef.current.getBoundingClientRect();
-    mouseX.set(((event.clientX - bounds.left) / bounds.width - 0.5) * 2);
-    mouseY.set(((event.clientY - bounds.top) / bounds.height - 0.5) * 2);
+    let nearestIndex = null;
+    let nearestDistance = Infinity;
+
+    buddyRefs.current.forEach((buddyRef, index) => {
+      if (!buddyRef || !buddyRef.isConnected) return;
+      const rect = buddyRef.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const dx = event.clientX - (rect.left + rect.width / 2);
+      const dy = event.clientY - (rect.top + rect.height / 2);
+      const distance = dx * dx + dy * dy;
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestIndex = index;
+      }
+    });
+
+    setActiveIndex((current) => current === nearestIndex ? current : nearestIndex);
+    const target = buddyRefs.current[nearestIndex]?.getBoundingClientRect();
+    if (!target) return;
+    const maxFollowX = Math.max(1, Math.min(80, bounds.width * 0.055));
+    const maxFollowY = Math.max(1, Math.min(64, bounds.height * 0.16));
+    mouseX.set(Math.max(-1, Math.min(1, (event.clientX - (target.left + target.width / 2)) / maxFollowX)));
+    mouseY.set(Math.max(-1, Math.min(1, (event.clientY - (target.top + target.height / 2)) / maxFollowY)));
   }
 
   function resetPointer() {
+    setActiveIndex(null);
     mouseX.set(0);
     mouseY.set(0);
   }
@@ -124,6 +151,8 @@ export function FooterPlayground() {
           buddy={buddy}
           index={index}
           boundsRef={boundsRef}
+          buddyRefs={buddyRefs}
+          activeIndex={activeIndex}
           mouseX={mouseX}
           mouseY={mouseY}
           reduceMotion={reduceMotion}

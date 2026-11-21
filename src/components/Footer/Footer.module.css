@@ -1,22 +1,22 @@
 .footer {
-  padding: 4rem 1.5rem 1.5rem;
+  padding: 5.5rem 2rem 1.5rem;
   background: var(--color-bg);
   color: var(--color-text-primary);
 }
 
 .container { max-width: 1440px; margin: 0 auto; }
-.topSection { display: flex; justify-content: space-between; gap: 4rem; padding-bottom: 3.5rem; }
-.brandCol { max-width: 330px; }
+.topSection { display: flex; justify-content: space-between; gap: 4rem; padding-bottom: 4rem; }
+.brandCol { max-width: 360px; }
 .brand { display: inline-flex; align-items: center; gap: .7rem; color: inherit; text-decoration: none; font-size: 1.05rem; font-weight: 650; letter-spacing: -.03em; }
 .logoIcon { width: 1.25rem; height: 1.25rem; color: var(--color-accent); }
-.description { margin-top: 1rem; color: var(--color-text-muted); font-size: .9rem; line-height: 1.7; }
+.description { max-width: 38ch; margin-top: 1rem; color: var(--color-text-muted); font-size: .9rem; line-height: 1.75; }
 .linksGrid { display: flex; gap: clamp(3rem, 8vw, 7rem); }
-.linkGroup { display: flex; flex-direction: column; align-items: flex-start; gap: .8rem; }
+.linkGroup { display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; }
 .groupTitle { margin-bottom: .35rem; color: var(--color-text-muted); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .link { display: inline-flex; align-items: center; gap: .35rem; color: var(--color-text-secondary); text-decoration: none; font-size: .86rem; transition: color .18s ease, transform .18s ease; }
 .link:hover { transform: translateX(2px); color: var(--color-accent); }
 .link svg { width: .8rem; height: .8rem; }
-.bottomSection { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--color-border-subtle); padding-top: 1.2rem; color: var(--color-text-muted); font-size: .76rem; }
+.bottomSection { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--color-border-subtle); padding-top: 1.35rem; color: var(--color-text-muted); font-size: .76rem; }
 .attribution { color: var(--color-text-muted); }
 
 .playground {
@@ -37,16 +37,19 @@
 .buddyDrop, .buddyFollow { position: relative; display: grid; width: 100%; height: 100%; place-items: center; }
 .buddyEmoji {
   display: block;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-  font-size: .82em;
-  line-height: 1;
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
   transform: translateY(-3%);
   filter: drop-shadow(0 13px 9px rgba(0, 0, 0, .27)) drop-shadow(0 3px 1px rgba(0, 0, 0, .24));
-  text-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 0 rgba(0,0,0,.07), 0 3px 0 rgba(0,0,0,.06), 0 4px 0 rgba(0,0,0,.05);
-  -webkit-font-smoothing: antialiased;
+  pointer-events: none;
+  user-select: none;
 }
 
 @media (max-width: 640px) {
+  .footer { padding: 3.75rem 1.25rem 1.25rem; }
+  .topSection { padding-bottom: 2.5rem; }
+  .linksGrid { flex-wrap: wrap; row-gap: 2rem; }
   .playground { height: 280px; margin-top: 30px; }
   .playgroundHint { top: 13px; right: 5%; font-size: .58rem; }
   .wordmark { font-size: clamp(5rem, 21vw, 7.7rem); }
