@@ -32,7 +32,6 @@ export function Footer({ className }) {
               <span className={styles.groupTitle}>Explore</span>
               <a href="#explorer" className={styles.link}>Repository feed</a>
               <a href="#how-it-works" className={styles.link}>How it works</a>
-              <a href="#methodology" className={styles.link}>Methodology</a>
             </div>
             <div className={styles.linkGroup}>
               <span className={styles.groupTitle}>Source</span>

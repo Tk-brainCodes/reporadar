@@ -1,7 +1,7 @@
 .explorerSection {
   padding: 112px 32px 120px;
   color: #000000;
-  background: #e5e5e5;
+  background: rgba(229, 229, 229, .72);
 }
 
 .container { width: min(100%, 1280px); margin: 0 auto; }

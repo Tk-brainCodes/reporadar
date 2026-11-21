@@ -23,7 +23,6 @@ export function Navbar() {
         <nav className={styles.navLinks} aria-label="Main navigation">
           <a href="#explorer" className={styles.navLink}>Repository feed</a>
           <a href="#how-it-works" className={styles.navLink}>How it works</a>
-          <a href="#methodology" className={styles.navLink}>Methodology</a>
         </nav>
 
         <div className={styles.actions}>
@@ -56,7 +55,6 @@ export function Navbar() {
           >
             <a href="#explorer" onClick={closeMenu}>Repository feed</a>
             <a href="#how-it-works" onClick={closeMenu}>How it works</a>
-            <a href="#methodology" onClick={closeMenu}>Methodology</a>
             <Button variant="primary" size="md" href="#explorer" onClick={closeMenu}>Browse feed</Button>
           </m.nav>
         )}

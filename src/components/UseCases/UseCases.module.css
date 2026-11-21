@@ -1,4 +1,4 @@
-.section { padding: 116px 32px 122px; background: #ffffff; color: #000000; }
+.section { padding: 116px 32px 122px; background: rgba(255, 255, 255, .76); color: #000000; }
 .container { width: min(100%, 1280px); margin: 0 auto; display: grid; grid-template-columns: 0.72fr 1.28fr; gap: clamp(46px, 8vw, 126px); }
 .header { align-self: start; }
 .title { max-width: 10ch; margin: 0; color: #14213d; font-size: clamp(2.7rem, 4.7vw, 4.5rem); font-weight: 560; line-height: .99; letter-spacing: -0.055em; }

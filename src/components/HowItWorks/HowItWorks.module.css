@@ -1,4 +1,4 @@
-.section { padding: 116px 32px 122px; background: #14213d; }
+.section { padding: 116px 32px 122px; background: rgba(20, 33, 61, .72); }
 .container { width: min(100%, 1280px); margin: 0 auto; }
 .header { display: grid; grid-template-columns: 1fr 0.72fr; align-items: end; gap: 48px; margin-bottom: 68px; }
 .title { max-width: 12ch; margin: 0; color: #ffffff; font-size: clamp(2.7rem, 5vw, 4.75rem); font-weight: 550; line-height: .99; letter-spacing: -0.055em; }

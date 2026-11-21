@@ -1,4 +1,4 @@
-.section { padding: 76px 32px; background: #fca311; }
+.section { padding: 76px 32px; background: rgba(252, 163, 17, .76); }
 .container { width: min(100%, 1280px); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .headline { max-width: 18ch; margin: 0; color: #000000; font-size: clamp(2rem, 3.7vw, 3.2rem); font-weight: 580; line-height: 1.02; letter-spacing: -.045em; }
 .description { margin: 12px 0 0; color: rgba(0,0,0,.78); font-size: .96rem; line-height: 1.6; }

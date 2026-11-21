@@ -40,9 +40,12 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-[#000000] text-[#ffffff] antialiased">
         <MotionProvider>
-          <Navbar />
-          <main>{children}</main>
-          <ScrollReveal><Footer /></ScrollReveal>
+          <div className="site-shell">
+            <div className="ambient-gradient" aria-hidden="true" />
+            <Navbar />
+            <main>{children}</main>
+            <ScrollReveal><Footer /></ScrollReveal>
+          </div>
         </MotionProvider>
       </body>
     </html>
