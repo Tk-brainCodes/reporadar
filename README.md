@@ -79,44 +79,41 @@ GitHub's unauthenticated REST API allows up to **60 requests per hour per origin
 ```text
 src/
 ├── app/
-│   ├── globals.css                # Tailwind CSS v4 variables & base reset
-│   ├── layout.tsx                 # Root layout with metadata and shell
-│   └── page.tsx                   # Main landing page (Server Component)
-├── components/                    # Encapsulated component folders
-│   ├── Badge/                     # Shared status & tag badges
-│   ├── Button/                    # Shared buttons (primary, secondary, outline, ghost)
-│   ├── Card/                      # Shared container cards
-│   ├── Features/                  # Why RepoRadar benefit cards
-│   ├── FinalCTA/                  # Final call-to-action section
-│   ├── Footer/                    # Footer with GitHub API attribution
-│   ├── Hero/                      # Hero section with headline and radar visual
-│   ├── HowItWorks/                # 3-step workflow section
-│   ├── Methodology/               # Transparency and methodology section
-│   ├── Navbar/                    # Sticky navigation with mobile menu
-│   ├── RadarVisual/               # Custom SVG radar animation with sweep beam
-│   ├── RepositoryExplorer/        # Main interactive GitHub explorer
-│   │   ├── ExplorerEmptyState.tsx # No results fallback state
-│   │   ├── ExplorerErrorState.tsx # API failure & rate-limit state
-│   │   ├── ExplorerFilters.tsx    # Filter bar, search, segmented window
-│   │   ├── RepositoryCard.tsx     # Repository card component
-│   │   ├── RepositoryExplorer.module.css # Scoped explorer styling
-│   │   ├── RepositoryExplorer.tsx # Explorer section wrapper
-│   │   ├── RepositoryGrid.tsx     # Responsive cards grid
-│   │   ├── RepositorySkeleton.tsx # Shimmer loading placeholder
-│   │   ├── StatusIndicator.tsx    # Live / Cached / Stale status indicator
-│   │   ├── types.ts               # Explorer state & prop contracts
-│   │   ├── useRepositories.ts     # Data fetching, caching & filter hook
-│   │   └── index.ts               # Barrel exports
-│   └── Stats/                     # System configuration & telemetry stats
-├── hooks/                         # Global hooks
-│   ├── useIsMobile.ts             # SSR-safe viewport hook
-│   └── useReducedMotion.ts        # SSR-safe reduced motion preference hook
-└── lib/                           # Core utilities, API clients & models
-    ├── cache.ts                   # LocalStorage TTL cache manager
-    ├── constants.ts               # Languages, sort options, time windows
-    ├── date.ts                    # Dynamic date boundary & formatting helpers
-    ├── github.ts                  # GitHub API service & domain interfaces
-    └── utils.ts                   # Classname merge utility (cn)
+│   ├── globals.css                       # Brand tokens & base reset
+│   ├── layout.tsx                        # Root layout, fonts & OpenGraph metadata
+│   └── page.tsx                          # RSC landing page aggregating all sections
+├── components/                           # Strictly encapsulated component folders
+│   ├── Badge/                            # Badge.tsx, Badge.module.css, types.ts, index.ts
+│   ├── Button/                           # Button.tsx, Button.module.css, types.ts, index.ts
+│   ├── Card/                             # Card.tsx, Card.module.css, types.ts, index.ts
+│   ├── ExplorerEmptyState/               # EmptyState.tsx, EmptyState.module.css, types.ts, index.ts
+│   ├── ExplorerErrorState/               # ErrorState.tsx, ErrorState.module.css, types.ts, index.ts
+│   ├── ExplorerFilters/                  # Filters.tsx, Filters.module.css, types.ts, index.ts
+│   ├── Features/                         # Features.tsx, Features.module.css, types.ts, index.ts
+│   ├── FinalCTA/                         # FinalCTA.tsx, FinalCTA.module.css, types.ts, index.ts
+│   ├── Footer/                           # Footer.tsx, Footer.module.css, types.ts, index.ts
+│   ├── Hero/                             # Hero.tsx, Hero.module.css, types.ts, index.ts
+│   ├── HowItWorks/                       # HowItWorks.tsx, HowItWorks.module.css, types.ts, index.ts
+│   ├── Methodology/                      # Methodology.tsx, Methodology.module.css, types.ts, index.ts
+│   ├── Navbar/                           # Navbar.tsx, Navbar.module.css, useNavbar.ts, types.ts, index.ts
+│   ├── RadarVisual/                      # RadarVisual.tsx, RadarVisual.module.css, types.ts, index.ts
+│   ├── RepositoryCard/                   # RepositoryCard.tsx, RepositoryCard.module.css, types.ts, index.ts
+│   ├── RepositoryExplorer/               # RepositoryExplorer.tsx, RepositoryExplorer.module.css, useRepositories.ts, types.ts, index.ts
+│   ├── RepositoryGrid/                   # RepositoryGrid.tsx, RepositoryGrid.module.css, types.ts, index.ts
+│   ├── RepositorySkeleton/               # RepositorySkeleton.tsx, RepositorySkeleton.module.css, types.ts, index.ts
+│   ├── StatusIndicator/                  # StatusIndicator.tsx, StatusIndicator.module.css, types.ts, index.ts
+│   └── Stats/                            # Stats.tsx, Stats.module.css, types.ts, index.ts
+├── hooks/                                # Global, shared utility hooks
+│   ├── useIsMobile.ts                    # SSR-safe viewport hook
+│   └── useReducedMotion.ts               # SSR-safe reduced motion preference hook
+└── lib/                                  # Core business logic, cache, API & utilities
+    ├── cache.ts                          # LocalStorage TTL cache manager
+    ├── cache-types.ts                    # Cache data structures & lookup types
+    ├── constants.ts                      # Languages, query defaults & URLs
+    ├── date.ts                           # Dynamic date boundary & formatting helpers
+    ├── github.ts                         # GitHub REST API service & deduplication
+    ├── github-types.ts                   # GitHub domain entities & response types
+    └── utils.ts                          # Tailwind merge utility (cn)
 ```
 
 ---

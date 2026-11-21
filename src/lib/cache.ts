@@ -1,15 +1,7 @@
 import { CACHE_PREFIX, CACHE_TTL_MS } from "@/lib/constants";
+import type { CachedResponse, CacheLookupResult } from "@/lib/cache-types";
 
-export interface CachedResponse<T> {
-  data: T;
-  timestamp: number;
-}
-
-export interface CacheLookupResult<T> {
-  data: T | null;
-  isStale: boolean;
-  exists: boolean;
-}
+export type { CachedResponse, CacheLookupResult };
 
 function isLocalStorageAvailable(): boolean {
   if (typeof window === "undefined") {

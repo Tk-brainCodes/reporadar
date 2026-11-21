@@ -1,9 +1,11 @@
 import React from "react";
-import styles from "./RepositoryExplorer.module.css";
+import styles from "./RepositorySkeleton.module.css";
+import { cn } from "@/lib/utils";
+import type { RepositorySkeletonProps } from "./types";
 
-export function RepositorySkeleton() {
+export function RepositorySkeleton({ className }: RepositorySkeletonProps) {
   return (
-    <div className={styles.skeletonCard} aria-hidden="true">
+    <div className={cn(styles.skeletonCard, className)} aria-hidden="true">
       <div className={styles.skeletonHeader}>
         <div className={styles.skeletonAvatar} />
         <div className={styles.skeletonTitleGroup}>

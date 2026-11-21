@@ -1,22 +1,11 @@
 import React from "react";
 import { Search, RefreshCw, X } from "lucide-react";
-import styles from "./RepositoryExplorer.module.css";
+import styles from "./ExplorerFilters.module.css";
 import { LANGUAGES, TIME_WINDOWS, SORT_OPTIONS } from "@/lib/constants";
-import type { LanguageValue, SortValue, TimeWindowValue } from "@/lib/constants";
+import type { SortValue } from "@/lib/constants";
 import { Button } from "@/components/Button";
-
-interface ExplorerFiltersProps {
-  language: LanguageValue;
-  timeWindow: TimeWindowValue;
-  sort: SortValue;
-  searchQuery: string;
-  isRefreshing: boolean;
-  onLanguageChange: (lang: LanguageValue) => void;
-  onTimeWindowChange: (window: TimeWindowValue) => void;
-  onSortChange: (sort: SortValue) => void;
-  onSearchChange: (query: string) => void;
-  onRefresh: () => void;
-}
+import { cn } from "@/lib/utils";
+import type { ExplorerFiltersProps } from "./types";
 
 export function ExplorerFilters({
   language,
@@ -29,9 +18,10 @@ export function ExplorerFilters({
   onSortChange,
   onSearchChange,
   onRefresh,
+  className,
 }: ExplorerFiltersProps) {
   return (
-    <div className={styles.filterBar}>
+    <div className={cn(styles.filterBar, className)}>
       <div className={styles.filterTopRow}>
         <div className={styles.searchWrapper}>
           <Search className={styles.searchIcon} aria-hidden="true" />

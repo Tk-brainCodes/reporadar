@@ -3,10 +3,10 @@
 import React from "react";
 import styles from "./RepositoryExplorer.module.css";
 import { useRepositories } from "./useRepositories";
-import { StatusIndicator } from "./StatusIndicator";
-import { ExplorerFilters } from "./ExplorerFilters";
-import { RepositoryGrid } from "./RepositoryGrid";
-import { ExplorerErrorState } from "./ExplorerErrorState";
+import { StatusIndicator } from "@/components/StatusIndicator";
+import { ExplorerFilters } from "@/components/ExplorerFilters";
+import { RepositoryGrid } from "@/components/RepositoryGrid";
+import { ExplorerErrorState } from "@/components/ExplorerErrorState";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/utils";
 import type { RepositoryExplorerProps } from "./types";

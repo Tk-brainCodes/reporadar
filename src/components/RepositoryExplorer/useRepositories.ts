@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { fetchRepositories } from "@/lib/github";
 import { DEFAULT_QUERY_CONFIG } from "@/lib/constants";
-import type { GitHubRepository, CacheStatus, GitHubServiceError } from "@/lib/github";
+import type { GitHubRepository, CacheStatus, GitHubServiceError } from "@/lib/github-types";
 import type { LanguageValue, SortValue, TimeWindowValue } from "@/lib/constants";
 import type { ExplorerState, ExplorerActions } from "./types";
 

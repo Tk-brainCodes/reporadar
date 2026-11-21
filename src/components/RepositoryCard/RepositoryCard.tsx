@@ -1,13 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { Star, GitFork, ExternalLink, Calendar } from "lucide-react";
-import styles from "./RepositoryExplorer.module.css";
+import styles from "./RepositoryCard.module.css";
 import { formatNumber, formatTimeAgo, formatDate } from "@/lib/date";
-import type { GitHubRepository } from "@/lib/github";
-
-interface RepositoryCardProps {
-  repository: GitHubRepository;
-}
+import { cn } from "@/lib/utils";
+import type { RepositoryCardProps } from "./types";
 
 const LANGUAGE_COLORS: Record<string, string> = {
   TypeScript: "#3178c6",
@@ -23,11 +20,11 @@ const LANGUAGE_COLORS: Record<string, string> = {
   Ruby: "#701516",
 };
 
-export function RepositoryCard({ repository }: RepositoryCardProps) {
+export function RepositoryCard({ repository, className }: RepositoryCardProps) {
   const langColor = repository.language ? LANGUAGE_COLORS[repository.language] || "#00f589" : "#64748b";
 
   return (
-    <div className={styles.repoCard}>
+    <div className={cn(styles.repoCard, className)}>
       <div className={styles.cardHeader}>
         <div className={styles.ownerInfo}>
           <Image

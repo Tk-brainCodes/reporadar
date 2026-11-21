@@ -1,18 +1,18 @@
 import React from "react";
 import { AlertTriangle, RefreshCw } from "lucide-react";
-import styles from "./RepositoryExplorer.module.css";
+import styles from "./ExplorerErrorState.module.css";
 import { Button } from "@/components/Button";
-import type { GitHubServiceError } from "@/lib/github";
+import { cn } from "@/lib/utils";
+import type { ExplorerErrorStateProps } from "./types";
 
-interface ExplorerErrorStateProps {
-  error: GitHubServiceError;
-  onRetry: () => void;
-  isRetrying?: boolean;
-}
-
-export function ExplorerErrorState({ error, onRetry, isRetrying }: ExplorerErrorStateProps) {
+export function ExplorerErrorState({
+  error,
+  onRetry,
+  isRetrying,
+  className,
+}: ExplorerErrorStateProps) {
   return (
-    <div className={styles.errorContainer} role="alert">
+    <div className={cn(styles.errorContainer, className)} role="alert">
       <div className={styles.errorIconWrapper}>
         <AlertTriangle className="w-8 h-8 text-[#ef4444]" />
       </div>

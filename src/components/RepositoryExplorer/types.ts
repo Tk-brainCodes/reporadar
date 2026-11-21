@@ -1,4 +1,4 @@
-import type { GitHubRepository, CacheStatus, GitHubServiceError } from "@/lib/github";
+import type { GitHubRepository, CacheStatus, GitHubServiceError } from "@/lib/github-types";
 import type { LanguageValue, SortValue, TimeWindowValue } from "@/lib/constants";
 
 export interface ExplorerState {

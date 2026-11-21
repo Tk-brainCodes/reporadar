@@ -1,16 +1,17 @@
 import React from "react";
 import { Radar, RotateCcw } from "lucide-react";
-import styles from "./RepositoryExplorer.module.css";
+import styles from "./ExplorerEmptyState.module.css";
 import { Button } from "@/components/Button";
+import { cn } from "@/lib/utils";
+import type { ExplorerEmptyStateProps } from "./types";
 
-interface ExplorerEmptyStateProps {
-  isSearchActive: boolean;
-  onReset: () => void;
-}
-
-export function ExplorerEmptyState({ isSearchActive, onReset }: ExplorerEmptyStateProps) {
+export function ExplorerEmptyState({
+  isSearchActive,
+  onReset,
+  className,
+}: ExplorerEmptyStateProps) {
   return (
-    <div className={styles.emptyContainer}>
+    <div className={cn(styles.emptyContainer, className)}>
       <div className={styles.emptyIconWrapper}>
         <Radar className="w-8 h-8 text-[#00f589] opacity-80" />
       </div>
