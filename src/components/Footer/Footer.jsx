@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Radar } from "lucide-react";
 import styles from "./Footer.module.css";
 import { cn } from "@/lib/utils";
+import { FooterPlayground } from "./FooterPlayground";
 
 const subscribe = () => () => {};
 const getYear = () => new Date().getFullYear();
@@ -48,6 +49,7 @@ export function Footer({ className }) {
           <span>© {year} RepoRadar</span>
           <span className={styles.attribution}>Public GitHub REST API v3</span>
         </div>
+        <FooterPlayground />
       </div>
     </footer>
   );
