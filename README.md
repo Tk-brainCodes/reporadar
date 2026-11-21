@@ -80,40 +80,18 @@ GitHub's unauthenticated REST API allows up to **60 requests per hour per origin
 src/
 ├── app/
 │   ├── globals.css                       # Brand tokens & base reset
-│   ├── layout.tsx                        # Root layout, fonts & OpenGraph metadata
-│   └── page.tsx                          # RSC landing page aggregating all sections
+│   ├── layout.jsx                        # Root layout, fonts & OpenGraph metadata
+│   └── page.jsx                          # RSC landing page aggregating all sections
 ├── components/                           # Strictly encapsulated component folders
-│   ├── Badge/                            # Badge.tsx, Badge.module.css, types.ts, index.ts
-│   ├── Button/                           # Button.tsx, Button.module.css, types.ts, index.ts
-│   ├── Card/                             # Card.tsx, Card.module.css, types.ts, index.ts
-│   ├── ExplorerEmptyState/               # EmptyState.tsx, EmptyState.module.css, types.ts, index.ts
-│   ├── ExplorerErrorState/               # ErrorState.tsx, ErrorState.module.css, types.ts, index.ts
-│   ├── ExplorerFilters/                  # Filters.tsx, Filters.module.css, types.ts, index.ts
-│   ├── Features/                         # Features.tsx, Features.module.css, types.ts, index.ts
-│   ├── FinalCTA/                         # FinalCTA.tsx, FinalCTA.module.css, types.ts, index.ts
-│   ├── Footer/                           # Footer.tsx, Footer.module.css, types.ts, index.ts
-│   ├── Hero/                             # Hero.tsx, Hero.module.css, types.ts, index.ts
-│   ├── HowItWorks/                       # HowItWorks.tsx, HowItWorks.module.css, types.ts, index.ts
-│   ├── Methodology/                      # Methodology.tsx, Methodology.module.css, types.ts, index.ts
-│   ├── Navbar/                           # Navbar.tsx, Navbar.module.css, useNavbar.ts, types.ts, index.ts
-│   ├── RadarVisual/                      # RadarVisual.tsx, RadarVisual.module.css, types.ts, index.ts
-│   ├── RepositoryCard/                   # RepositoryCard.tsx, RepositoryCard.module.css, types.ts, index.ts
-│   ├── RepositoryExplorer/               # RepositoryExplorer.tsx, RepositoryExplorer.module.css, useRepositories.ts, types.ts, index.ts
-│   ├── RepositoryGrid/                   # RepositoryGrid.tsx, RepositoryGrid.module.css, types.ts, index.ts
-│   ├── RepositorySkeleton/               # RepositorySkeleton.tsx, RepositorySkeleton.module.css, types.ts, index.ts
-│   ├── StatusIndicator/                  # StatusIndicator.tsx, StatusIndicator.module.css, types.ts, index.ts
-│   └── Stats/                            # Stats.tsx, Stats.module.css, types.ts, index.ts
 ├── hooks/                                # Global, shared utility hooks
-│   ├── useIsMobile.ts                    # SSR-safe viewport hook
-│   └── useReducedMotion.ts               # SSR-safe reduced motion preference hook
+│   ├── useIsMobile.js                    # SSR-safe viewport hook
+│   └── useReducedMotion.js               # SSR-safe reduced motion preference hook
 └── lib/                                  # Core business logic, cache, API & utilities
-    ├── cache.ts                          # LocalStorage TTL cache manager
-    ├── cache-types.ts                    # Cache data structures & lookup types
-    ├── constants.ts                      # Languages, query defaults & URLs
-    ├── date.ts                           # Dynamic date boundary & formatting helpers
-    ├── github.ts                         # GitHub REST API service & deduplication
-    ├── github-types.ts                   # GitHub domain entities & response types
-    └── utils.ts                          # Tailwind merge utility (cn)
+    ├── cache.js                          # LocalStorage TTL cache manager
+    ├── constants.js                      # Languages, query defaults & URLs
+    ├── date.js                           # Dynamic date boundary & formatting helpers
+    ├── github.js                         # GitHub REST API service & deduplication
+    └── utils.js                          # Tailwind merge utility (cn)
 ```
 
 ---
