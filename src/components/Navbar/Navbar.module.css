@@ -58,7 +58,6 @@
   transition: color 160ms ease;
 }
 
-.navLink:hover, .githubLink:hover { color: var(--color-text-primary); }
 .navLink::after {
   position: absolute;
   right: 0;
@@ -71,12 +70,10 @@
   transform-origin: left;
   transition: transform 220ms cubic-bezier(.22, 1, .36, 1);
 }
-.navLink:hover::after { transform: scaleX(1); }
 
 .githubLink { display: inline-flex; align-items: center; gap: 5px; }
 .githubLink svg { width: 13px; height: 13px; }
 .githubLink svg { transition: transform 200ms ease; }
-.githubLink:hover svg { transform: translate(2px, -2px); }
 
 .menuButton {
   display: none;
@@ -93,7 +90,6 @@
 }
 
 .menuButton svg { width: 19px; height: 19px; }
-.menuButton:hover { transform: translateY(-1px); border-color: rgba(229, 229, 229, .35); background: rgba(229, 229, 229, .08); }
 
 .mobileDrawer {
   display: none;
@@ -113,7 +109,15 @@
   text-decoration: none;
   transition: color 180ms ease, padding-left 180ms ease;
 }
-.mobileDrawer > a:hover { padding-left: 5px; color: var(--color-accent); }
+.mobileDrawer > a { min-height: 52px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .navLink:hover, .githubLink:hover { color: var(--color-text-primary); }
+  .navLink:hover::after { transform: scaleX(1); }
+  .githubLink:hover svg { transform: translate(2px, -2px); }
+  .menuButton:hover { transform: translateY(-1px); border-color: rgba(229, 229, 229, .35); background: rgba(229, 229, 229, .08); }
+  .mobileDrawer > a:hover { padding-left: 5px; color: var(--color-accent); }
+}
 
 .mobileDrawer > :last-child { margin-top: 18px; }
 

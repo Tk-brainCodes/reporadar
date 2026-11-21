@@ -64,8 +64,10 @@
 .languageTrack { display: flex; align-items: center; width: max-content; animation: language-drift 48s linear infinite; will-change: transform; }
 .language { display: inline-flex; align-items: center; gap: 12px; flex: 0 0 auto; margin-right: 58px; color: rgba(229, 229, 229, .84); font-size: clamp(.9rem, 1.65vw, 1.28rem); font-weight: 600; letter-spacing: -.025em; white-space: nowrap; transition: color .18s ease; }
 .language img { display: block; width: 38px; height: 38px; object-fit: contain; }
-.language:hover { color: #ffffff; }
-.brandSlider:hover .languageTrack { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+  .language:hover { color: #ffffff; }
+  .brandSlider:hover .languageTrack { animation-play-state: paused; }
+}
 
 @keyframes hero-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes language-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -85,7 +87,7 @@
 
 @media (max-width: 680px) {
   .hero { --header-overlap: 72px; padding: calc(76px + var(--header-overlap)) 20px 0; }
-  .headline { font-size: clamp(3.35rem, 12.5vw, 5.2rem); line-height: 1.02; }
+  .headline { font-size: clamp(2.25rem, 10.5vw, 5.1rem); line-height: 1.02; }
   .headline em { margin-top: .09em; }
   .description { max-width: 40ch; margin-top: 22px; font-size: 1rem; }
   .actions { flex-direction: column; gap: 17px; margin-top: 34px; }
@@ -97,6 +99,16 @@
   .brandSlider { margin-top: 75px; padding: 25px 0 32px; }
   .language { gap: 9px; margin-right: 32px; font-size: .92rem; }
   .language img { width: 30px; height: 30px; }
+}
+
+@media (max-width: 400px) {
+  .hero { padding-right: 16px; padding-left: 16px; }
+  .ownerCard { gap: 8px; padding: 7px 9px; }
+  .avatar, .avatarPlaceholder { width: 32px; height: 32px; }
+  .avatar + .avatar, .avatarPlaceholder + .avatarPlaceholder { margin-left: -10px; }
+  .ownerCopy strong { font-size: .68rem; }
+  .ownerCopy span { font-size: .58rem; }
+  .ownerArrow { width: 14px; flex: 0 0 auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -4,7 +4,7 @@
 .title { max-width: 10ch; margin: 0; color: #14213d; font-size: clamp(2.7rem, 4.7vw, 4.5rem); font-weight: 560; line-height: .99; letter-spacing: -0.055em; }
 .list { border-top: 1px solid rgba(20,33,61,.24); }
 .useCase { display: grid; grid-template-columns: minmax(160px, .7fr) 1.3fr; gap: 30px; padding: 25px 0 27px; border-bottom: 1px solid rgba(20,33,61,.18); transition: padding-left 180ms ease; }
-.useCase:hover { padding-left: 8px; }
+@media (hover: hover) and (pointer: fine) { .useCase:hover { padding-left: 8px; } }
 .targetAudience { margin: 3px 0 0; color: #14213d; font-size: 0.75rem; font-weight: 600; line-height: 1.5; }
 .caseTitle { margin: 0; color: #000000; font-size: 1.15rem; font-weight: 620; letter-spacing: -0.025em; }
 .caseDescription { max-width: 46ch; margin: 8px 0 0; color: rgba(0,0,0,.72); font-size: 0.9rem; line-height: 1.65; }
