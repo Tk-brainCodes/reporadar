@@ -55,7 +55,15 @@ export function Navbar() {
           >
             <a href="#explorer" onClick={closeMenu}>Repository feed</a>
             <a href="#how-it-works" onClick={closeMenu}>How it works</a>
-            <Button variant="primary" size="md" href="#explorer" onClick={closeMenu}>Browse feed</Button>
+            <Button
+              className={styles.mobileCta}
+              variant="primary"
+              size="md"
+              href="#explorer"
+              onClick={closeMenu}
+            >
+              Browse feed
+            </Button>
           </m.nav>
         )}
       </AnimatePresence>

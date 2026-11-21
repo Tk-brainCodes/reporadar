@@ -111,12 +111,33 @@
 }
 .mobileDrawer > a { min-height: 52px; }
 
+.mobileCta {
+  width: 100%;
+  min-width: 0;
+  justify-content: space-between;
+  padding-right: 6px;
+  background: #14213d;
+  color: #ffffff;
+}
+
+.mobileCta > span:first-of-type {
+  min-width: 0;
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.mobileCta > span:last-child {
+  flex: 0 0 42px;
+  outline: 1px solid rgba(255, 255, 255, 0.24);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .navLink:hover, .githubLink:hover { color: var(--color-text-primary); }
   .navLink:hover::after { transform: scaleX(1); }
   .githubLink:hover svg { transform: translate(2px, -2px); }
   .menuButton:hover { transform: translateY(-1px); border-color: rgba(229, 229, 229, .35); background: rgba(229, 229, 229, .08); }
   .mobileDrawer > a:hover { padding-left: 5px; color: var(--color-accent); }
+  .mobileDrawer .mobileCta:hover:not(:disabled) { background: #1b2e50; color: #ffffff; }
 }
 
 .mobileDrawer > :last-child { margin-top: 18px; }
