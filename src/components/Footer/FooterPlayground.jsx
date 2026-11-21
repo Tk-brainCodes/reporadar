@@ -6,17 +6,17 @@ import { m, useMotionValue, useReducedMotion, useSpring, useTransform } from "fr
 import styles from "./Footer.module.css";
 
 const BUDDIES = [
-  { name: "smiling face", src: "/assets/smiling-face-with-smiling-eyes.webp", left: "2%", bottom: "4%", size: "clamp(76px, 10vw, 148px)" },
-  { name: "heart eyes", src: "/assets/smiling-face-with-heart-eyes.webp", left: "15%", bottom: "0%", size: "clamp(60px, 7.8vw, 112px)" },
-  { name: "party popper", src: "/assets/party-popper.webp", left: "27%", bottom: "6%", size: "clamp(74px, 9vw, 132px)" },
-  { name: "sparkles", src: "/assets/sparkles.webp", left: "39%", bottom: "1%", size: "clamp(62px, 8vw, 118px)" },
-  { name: "halo smile", src: "/assets/smiling-face-with-halo.webp", left: "50%", bottom: "4%", size: "clamp(86px, 11vw, 160px)" },
-  { name: "sunglasses smile", src: "/assets/smiling-face-with-sunglasses.webp", left: "63%", bottom: "0%", size: "clamp(68px, 8.5vw, 126px)" },
-  { name: "laughing cat", src: "/assets/cat-with-tears-of-joy.webp", left: "75%", bottom: "5%", size: "clamp(68px, 9vw, 132px)" },
-  { name: "grinning face", src: "/assets/grinning-face-with-smiling-eyes.webp", left: "87%", bottom: "1%", size: "clamp(76px, 10vw, 148px)" },
-  { name: "magic wand", src: "/assets/magic-wand.webp", left: "8%", bottom: "43%", size: "clamp(58px, 7vw, 102px)" },
+  { name: "smiling face", src: "/assets/smiling-face-with-smiling-eyes.webp", left: "2%", bottom: "37%", size: "clamp(76px, 10vw, 148px)" },
+  { name: "heart eyes", src: "/assets/smiling-face-with-heart-eyes.webp", left: "15%", bottom: "34%", size: "clamp(60px, 7.8vw, 112px)" },
+  { name: "party popper", src: "/assets/party-popper.webp", left: "27%", bottom: "39%", size: "clamp(74px, 9vw, 132px)" },
+  { name: "sparkles", src: "/assets/sparkles.webp", left: "39%", bottom: "32%", size: "clamp(62px, 8vw, 118px)" },
+  { name: "halo smile", src: "/assets/smiling-face-with-halo.webp", left: "50%", bottom: "38%", size: "clamp(86px, 11vw, 160px)" },
+  { name: "sunglasses smile", src: "/assets/smiling-face-with-sunglasses.webp", left: "63%", bottom: "34%", size: "clamp(68px, 8.5vw, 126px)" },
+  { name: "laughing cat", src: "/assets/cat-with-tears-of-joy.webp", left: "75%", bottom: "40%", size: "clamp(68px, 9vw, 132px)" },
+  { name: "grinning face", src: "/assets/grinning-face-with-smiling-eyes.webp", left: "87%", bottom: "33%", size: "clamp(76px, 10vw, 148px)" },
+  { name: "magic wand", src: "/assets/magic-wand.webp", left: "8%", bottom: "46%", size: "clamp(58px, 7vw, 102px)" },
   { name: "trophy", src: "/assets/trophy.webp", left: "34%", bottom: "44%", size: "clamp(60px, 7.5vw, 110px)" },
-  { name: "confetti", src: "/assets/confetti-ball.webp", left: "68%", bottom: "42%", size: "clamp(62px, 7.5vw, 112px)" },
+  { name: "confetti", src: "/assets/confetti-ball.webp", left: "68%", bottom: "46%", size: "clamp(62px, 7.5vw, 112px)" },
   { name: "celebration", src: "/assets/fireworks.webp", left: "91%", bottom: "44%", size: "clamp(60px, 7.5vw, 110px)" },
 ];
 

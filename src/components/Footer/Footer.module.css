@@ -55,12 +55,12 @@
   .wordmark { font-size: clamp(5rem, 21vw, 7.7rem); }
   .buddyButton { --buddy-size: clamp(68px, 22vw, 98px); width: var(--buddy-size); height: var(--buddy-size); }
   .buddyButton:nth-of-type(n+7) { display: none; }
-  .buddyButton:nth-of-type(1) { left: 3% !important; bottom: 8% !important; }
-  .buddyButton:nth-of-type(2) { left: 20% !important; bottom: 1% !important; }
-  .buddyButton:nth-of-type(3) { left: 37% !important; bottom: 8% !important; }
-  .buddyButton:nth-of-type(4) { left: 55% !important; bottom: 0% !important; }
-  .buddyButton:nth-of-type(5) { left: 72% !important; bottom: 7% !important; }
-  .buddyButton:nth-of-type(6) { left: 87% !important; bottom: 0% !important; }
+  .buddyButton:nth-of-type(1) { left: 3% !important; bottom: 35% !important; }
+  .buddyButton:nth-of-type(2) { left: 20% !important; bottom: 32% !important; }
+  .buddyButton:nth-of-type(3) { left: 37% !important; bottom: 37% !important; }
+  .buddyButton:nth-of-type(4) { left: 55% !important; bottom: 31% !important; }
+  .buddyButton:nth-of-type(5) { left: 72% !important; bottom: 36% !important; }
+  .buddyButton:nth-of-type(6) { left: 87% !important; bottom: 32% !important; }
 }
 
 @media (max-width: 640px) {
