@@ -73,15 +73,15 @@ function FooterBuddy({ buddy, index, boundsRef, registerBuddy, activeIndex, mous
     >
       <m.span
         className={styles.buddyDrop}
-        initial={reduceMotion ? false : { y: -360, opacity: 0, rotate: index % 2 === 0 ? -18 : 16 }}
+        initial={reduceMotion ? false : { y: -420, opacity: 0, rotate: index % 2 === 0 ? -14 : 14 }}
         whileInView={{ y: 0, opacity: 1, rotate: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.12, margin: "0px 0px -8% 0px" }}
         transition={reduceMotion ? { duration: 0 } : {
           type: "spring",
-          stiffness: 112,
-          damping: 11,
-          mass: 0.9,
-          delay: 0.12 + index * 0.13,
+          stiffness: 120,
+          damping: 14,
+          mass: 0.8,
+          delay: 0.06 + index * 0.07,
         }}
       >
         <m.span className={styles.buddyFollow} style={{ x: followX, y: followY }}>
