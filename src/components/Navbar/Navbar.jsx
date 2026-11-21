@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight, Menu, Radar, X } from "lucide-react";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import styles from "./Navbar.module.css";
 import { useNavbar } from "./useNavbar";
 import { Button } from "@/components/Button";
@@ -9,6 +10,7 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const { isOpen, isScrolled, toggleMenu, closeMenu } = useNavbar();
+  const reduceMotion = useReducedMotion();
 
   return (
     <header className={cn(styles.header, isScrolled && styles.scrolled)}>
@@ -42,14 +44,23 @@ export function Navbar() {
         </button>
       </div>
 
-      {isOpen && (
-        <nav className={styles.mobileDrawer} aria-label="Mobile navigation">
-          <a href="#explorer" onClick={closeMenu}>Repository feed</a>
-          <a href="#how-it-works" onClick={closeMenu}>How it works</a>
-          <a href="#methodology" onClick={closeMenu}>Methodology</a>
-          <Button variant="primary" size="md" href="#explorer" onClick={closeMenu}>Browse feed</Button>
-        </nav>
-      )}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <m.nav
+            className={styles.mobileDrawer}
+            aria-label="Mobile navigation"
+            initial={reduceMotion ? false : { opacity: 0, y: -7 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -7 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <a href="#explorer" onClick={closeMenu}>Repository feed</a>
+            <a href="#how-it-works" onClick={closeMenu}>How it works</a>
+            <a href="#methodology" onClick={closeMenu}>Methodology</a>
+            <Button variant="primary" size="md" href="#explorer" onClick={closeMenu}>Browse feed</Button>
+          </m.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

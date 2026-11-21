@@ -1,5 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
 import styles from "./FinalCTA.module.css";
+import { Button } from "@/components/Button";
 
 export function FinalCTA() {
   return (
@@ -9,9 +9,7 @@ export function FinalCTA() {
           <h2 className={styles.headline}>Start with the repository feed.</h2>
           <p className={styles.description}>Choose a language and a date window. The results link straight to GitHub.</p>
         </div>
-        <a className={styles.action} href="#explorer">
-          Find repositories <ArrowUpRight aria-hidden="true" />
-        </a>
+        <Button variant="primary" size="md" href="#explorer">Find repositories</Button>
       </div>
     </section>
   );

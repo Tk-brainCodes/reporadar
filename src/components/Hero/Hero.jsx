@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import styles from "./Hero.module.css";
+import { Button } from "@/components/Button";
 import { useRepositories } from "@/components/RepositoryExplorer/useRepositories";
 
 const LANGUAGES = [
@@ -41,10 +42,9 @@ export function Hero() {
           </p>
 
           <div className={styles.actions}>
-            <a className={styles.cta} href="#explorer">
-              <span>Explore repositories</span>
-              <span className={styles.ctaIcon}><ArrowUpRight aria-hidden="true" /></span>
-            </a>
+            <Button variant="primary" size="lg" href="#explorer" rightIcon={<ArrowUpRight />}>
+              Explore repositories
+            </Button>
 
             <div className={styles.ownerCard} role="group" aria-label="Explore open-source project creators">
               <div className={styles.avatarStack} aria-hidden="true">

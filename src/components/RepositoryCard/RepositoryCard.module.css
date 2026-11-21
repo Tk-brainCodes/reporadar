@@ -6,10 +6,10 @@
   padding: 21px 4px;
   border-bottom: 1px solid rgba(20, 33, 61, 0.16);
   color: #000000;
-  transition: background-color 160ms ease;
+  transition: transform 180ms ease, background-color 180ms ease;
 }
 
-.repoRow:hover { background: rgba(255, 255, 255, 0.55); }
+.repoRow:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.55); }
 
 .repoIdentity { display: flex; align-items: flex-start; gap: 15px; min-width: 0; }
 .ownerAvatar { width: 40px; height: 40px; border-radius: 10px; background: #14213d; object-fit: cover; flex: 0 0 auto; }

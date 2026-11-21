@@ -6,18 +6,19 @@ import { Features } from "@/components/Features";
 import { UseCases } from "@/components/UseCases";
 import { Methodology } from "@/components/Methodology";
 import { FinalCTA } from "@/components/FinalCTA";
+import { ScrollReveal } from "@/components/ScrollReveal/ScrollReveal";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Stats />
-      <RepositoryExplorer />
-      <HowItWorks />
-      <Features />
-      <UseCases />
-      <Methodology />
-      <FinalCTA />
+      <ScrollReveal><Stats /></ScrollReveal>
+      <ScrollReveal><RepositoryExplorer /></ScrollReveal>
+      <ScrollReveal><HowItWorks /></ScrollReveal>
+      <ScrollReveal><Features /></ScrollReveal>
+      <ScrollReveal><UseCases /></ScrollReveal>
+      <ScrollReveal><Methodology /></ScrollReveal>
+      <ScrollReveal><FinalCTA /></ScrollReveal>
     </>
   );
 }

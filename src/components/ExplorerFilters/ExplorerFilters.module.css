@@ -41,9 +41,10 @@
   background: transparent;
   color: rgba(20,33,61,.7);
   cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
 }
 
-.clearSearchButton:hover { background: rgba(20,33,61,.08); }
+.clearSearchButton:hover { transform: scale(1.06); background: rgba(20,33,61,.08); }
 .clearSearchButton svg { width: 15px; height: 15px; }
 .actionsCluster { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
 
@@ -58,7 +59,9 @@
   font-size: 0.75rem;
   cursor: pointer;
   white-space: nowrap;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
 }
+.segmentedItem:hover, .segmentedActive:hover { transform: translateY(-1px); }
 .segmentedActive { background: #14213d; color: #ffffff; }
 
 .selectWrapper { position: relative; }
@@ -71,6 +74,7 @@
   color: #14213d;
   font-size: 0.78rem;
   cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
 
 .refreshButton {
@@ -85,8 +89,10 @@
   color: #14213d;
   font-size: 0.78rem;
   cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
-.refreshButton:hover:not(:disabled) { background: rgba(20,33,61,.07); }
+.selectInput:hover { transform: translateY(-1px); border-color: rgba(20,33,61,.42); }
+.refreshButton:hover:not(:disabled) { transform: translateY(-1px); background: rgba(20,33,61,.07); }
 .refreshButton:disabled { opacity: .58; cursor: wait; }
 .refreshButton svg { width: 14px; height: 14px; }
 .refreshing { animation: refresh 900ms linear infinite; }
@@ -103,8 +109,10 @@
   font-size: 0.72rem;
   cursor: pointer;
   white-space: nowrap;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease;
 }
-.langChip:hover { background: rgba(20,33,61,.07); color: #000000; }
+.langChip:hover { transform: translateY(-1px); background: rgba(20,33,61,.07); color: #000000; }
+.langChipActive:hover { transform: translateY(-1px); }
 .langChipActive { border-color: #14213d; background: #14213d; color: #ffffff; }
 
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
