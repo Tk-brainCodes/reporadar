@@ -12,9 +12,9 @@
 }
 
 .repoCard:hover {
-  border-color: rgba(0, 245, 137, 0.3);
+  border-color: rgba(252, 163, 17, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 16px rgba(0, 245, 137, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 16px rgba(252, 163, 17, 0.04);
 }
 
 .cardHeader {
@@ -78,7 +78,7 @@
 }
 
 .externalLink:hover {
-  color: var(--color-radar-green);
+  color: var(--color-accent);
   background-color: var(--color-surface-hover);
 }
 

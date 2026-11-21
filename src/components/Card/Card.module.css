@@ -24,7 +24,7 @@
 
 .interactive:hover {
   background-color: var(--color-surface-hover);
-  border-color: rgba(0, 245, 137, 0.3);
+  border-color: rgba(252, 163, 17, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 245, 137, 0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(252, 163, 17, 0.05);
 }

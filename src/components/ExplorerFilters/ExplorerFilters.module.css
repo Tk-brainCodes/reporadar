@@ -52,8 +52,8 @@
 }
 
 .searchInput:focus {
-  border-color: var(--color-radar-green);
-  box-shadow: 0 0 0 1px var(--color-radar-green);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
 }
 
 .searchInput::placeholder {
@@ -132,7 +132,7 @@
 }
 
 .selectInput:focus {
-  border-color: var(--color-radar-green);
+  border-color: var(--color-accent);
 }
 
 .languageScroller {
@@ -164,7 +164,7 @@
 }
 
 .langChipActive {
-  background-color: rgba(0, 245, 137, 0.1);
-  border-color: rgba(0, 245, 137, 0.4);
-  color: var(--color-radar-green);
+  background-color: rgba(252, 163, 17, 0.1);
+  border-color: rgba(252, 163, 17, 0.4);
+  color: var(--color-accent);
 }

@@ -8,22 +8,22 @@ const FEATURES = [
     {
         title: "Early Discovery",
         description: "Explore newly created repositories before they become widely known.",
-        icon: _jsx(Sparkles, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Sparkles, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         title: "Language-Specific Discovery",
         description: "Focus on the programming languages and ecosystems you care about.",
-        icon: _jsx(Terminal, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Terminal, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         title: "Live GitHub Data",
         description: "Discover projects using information retrieved directly from GitHub.",
-        icon: _jsx(Globe, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Globe, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         title: "Zero Friction",
         description: "No account, subscription, or GitHub authentication required.",
-        icon: _jsx(Zap, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Zap, { className: "w-5 h-5 text-[#fca311]" }),
     },
 ];
 export function Features({ className }) {

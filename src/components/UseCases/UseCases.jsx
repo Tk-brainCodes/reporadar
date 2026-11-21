@@ -9,25 +9,25 @@ const USE_CASES = [
         role: "Full-Stack & Systems Engineers",
         title: "Tool Hunters",
         description: "Find bleeding-edge developer tools, modern utility libraries, and alternative CLI utilities before they hit tech news aggregates.",
-        icon: _jsx(Wrench, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Wrench, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         role: "Open Source Developers",
         title: "Early Contributors",
         description: "Discover fresh, high-potential projects in their foundational stages where architecture decisions and first contributions carry real impact.",
-        icon: _jsx(GitPullRequest, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(GitPullRequest, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         role: "Engineering Teams",
         title: "Technology Evaluators",
         description: "Monitor ecosystem movement and track what peers are building in Rust, TypeScript, Go, and Python to inform architecture decisions.",
-        icon: _jsx(Code2, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Code2, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         role: "Technical Founders",
         title: "Innovation Researchers",
         description: "Observe emergent patterns in developer tooling, infrastructure components, and open software stacks to identify whitespace opportunities.",
-        icon: _jsx(Lightbulb, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Lightbulb, { className: "w-5 h-5 text-[#fca311]" }),
     },
 ];
 export function UseCases({ className }) {

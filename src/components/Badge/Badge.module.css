@@ -29,9 +29,9 @@
 }
 
 .radar {
-  background-color: rgba(0, 245, 137, 0.08);
-  border-color: rgba(0, 245, 137, 0.3);
-  color: var(--color-radar-green);
+  background-color: rgba(252, 163, 17, 0.08);
+  border-color: rgba(252, 163, 17, 0.3);
+  color: var(--color-accent);
 }
 
 .outline {
@@ -42,19 +42,19 @@
 
 .warning {
   background-color: var(--color-warning-bg);
-  border-color: rgba(245, 158, 11, 0.3);
+  border-color: rgba(252, 163, 17, 0.3);
   color: var(--color-warning);
 }
 
 .info {
   background-color: var(--color-info-bg);
-  border-color: rgba(56, 189, 248, 0.3);
+  border-color: rgba(252, 163, 17, 0.3);
   color: var(--color-info);
 }
 
 .stale {
-  background-color: rgba(245, 158, 11, 0.08);
-  border-color: rgba(245, 158, 11, 0.3);
+  background-color: rgba(252, 163, 17, 0.08);
+  border-color: rgba(252, 163, 17, 0.3);
   color: var(--color-warning);
 }
 

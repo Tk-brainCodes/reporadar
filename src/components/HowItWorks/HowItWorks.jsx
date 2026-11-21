@@ -9,19 +9,19 @@ const STEPS = [
         number: "01",
         title: "Scan GitHub",
         description: "We retrieve recently created public repositories directly from GitHub.",
-        icon: _jsx(Search, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Search, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         number: "02",
         title: "Find rising projects",
         description: "Repositories are ranked by their accumulated stars to highlight projects attracting attention.",
-        icon: _jsx(TrendingUp, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(TrendingUp, { className: "w-5 h-5 text-[#fca311]" }),
     },
     {
         number: "03",
         title: "Explore and discover",
         description: "Browse projects by programming language, inspect their details, and visit the original repository.",
-        icon: _jsx(Compass, { className: "w-5 h-5 text-[#00f589]" }),
+        icon: _jsx(Compass, { className: "w-5 h-5 text-[#fca311]" }),
     },
 ];
 export function HowItWorks({ className }) {

@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 export const viewport = {
-    themeColor: "#07090e",
+    themeColor: "#000000",
     colorScheme: "dark",
     width: "device-width",
     initialScale: 1,
@@ -48,5 +48,5 @@ export const metadata = {
     },
 };
 export default function RootLayout({ children, }) {
-    return (_jsx("html", { lang: "en", className: `${geistSans.variable} ${geistMono.variable}`, children: _jsxs("body", { className: "flex flex-col min-h-screen bg-[#07090e] text-[#f8fafc] antialiased", children: [_jsx(Navbar, {}), _jsx("main", { className: "flex-1", children: children }), _jsx(Footer, {})] }) }));
+    return (_jsx("html", { lang: "en", className: `${geistSans.variable} ${geistMono.variable}`, children: _jsxs("body", { className: "flex flex-col min-h-screen bg-[#000000] text-[#ffffff] antialiased", children: [_jsx(Navbar, {}), _jsx("main", { className: "flex-1", children: children }), _jsx(Footer, {})] }) }));
 }

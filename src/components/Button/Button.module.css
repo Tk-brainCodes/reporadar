@@ -39,14 +39,14 @@
 }
 
 .primary {
-  background-color: var(--color-radar-green);
-  color: #05080d;
-  box-shadow: 0 0 16px var(--color-radar-glow);
+  background-color: var(--color-accent);
+  color: #000000;
+  box-shadow: 0 0 16px var(--color-accent-glow);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: #1aff96;
-  box-shadow: 0 0 24px rgba(0, 245, 137, 0.35);
+  background-color: #fca311;
+  box-shadow: 0 0 24px rgba(252, 163, 17, 0.35);
   transform: translateY(-1px);
 }
 
@@ -73,9 +73,9 @@
 }
 
 .outline:hover:not(:disabled) {
-  border-color: var(--color-radar-green);
-  color: var(--color-radar-green);
-  background-color: rgba(0, 245, 137, 0.04);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: rgba(252, 163, 17, 0.04);
 }
 
 .ghost {
