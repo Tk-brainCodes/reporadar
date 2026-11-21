@@ -1,0 +1,121 @@
+.footer {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg-subtle);
+  padding: 4rem 1.5rem 2.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .topSection {
+    flex-direction: row;
+  }
+}
+
+.brandCol {
+  max-width: 380px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  background: rgba(0, 245, 137, 0.1);
+  border: 1px solid rgba(0, 245, 137, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-radar-green);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.linksGrid {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.groupTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--color-radar-green);
+}
+
+.bottomSection {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .bottomSection {
+    flex-direction: row;
+  }
+}
+
+.attribution {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.attributionDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-radar-green);
+}
