@@ -107,6 +107,9 @@ export function useRepositories() {
         }
         finally {
             setIsRefreshing(false);
+            if (abortControllerRef.current === controller) {
+                setIsLoading(false);
+            }
         }
     }, [language, timeWindow, sort, perPage]);
     const resetFilters = useCallback(() => {

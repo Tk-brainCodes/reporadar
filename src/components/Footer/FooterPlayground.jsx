@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import { m, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import styles from "./Footer.module.css";
@@ -20,7 +20,7 @@ const BUDDIES = [
   { name: "celebration", src: "/assets/fireworks.webp", left: "91%", bottom: "44%", size: "clamp(60px, 7.5vw, 110px)" },
 ];
 
-function FooterBuddy({ buddy, index, boundsRef, buddyRefs, activeIndex, mouseX, mouseY, reduceMotion }) {
+function FooterBuddy({ buddy, index, boundsRef, registerBuddy, activeIndex, mouseX, mouseY, reduceMotion }) {
   const x = useSpring(0, { stiffness: 260, damping: 22 });
   const y = useSpring(0, { stiffness: 260, damping: 22 });
   const depth = 0.65 + index * 0.15;
@@ -58,7 +58,7 @@ function FooterBuddy({ buddy, index, boundsRef, buddyRefs, activeIndex, mouseX, 
     <m.button
       type="button"
       className={styles.buddyButton}
-      ref={(node) => { buddyRefs.current[index] = node; }}
+      ref={(node) => registerBuddy(index, node)}
       style={{ left: buddy.left, bottom: buddy.bottom, "--buddy-size": buddy.size, x, y }}
       drag
       dragConstraints={boundsRef}
@@ -95,6 +95,9 @@ function FooterBuddy({ buddy, index, boundsRef, buddyRefs, activeIndex, mouseX, 
 export function FooterPlayground() {
   const boundsRef = useRef(null);
   const buddyRefs = useRef([]);
+  const registerBuddy = useCallback((index, node) => {
+    buddyRefs.current[index] = node;
+  }, []);
   const reduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(null);
   const mouseX = useMotionValue(0);
@@ -151,7 +154,7 @@ export function FooterPlayground() {
           buddy={buddy}
           index={index}
           boundsRef={boundsRef}
-          buddyRefs={buddyRefs}
+          registerBuddy={registerBuddy}
           activeIndex={activeIndex}
           mouseX={mouseX}
           mouseY={mouseY}

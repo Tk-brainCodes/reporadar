@@ -24,17 +24,16 @@ RepoRadar solves a persistent problem for developers: finding innovative new ope
   - Real-time GitHub search querying unauthenticated public endpoints.
   - Multi-ecosystem filtering: All Languages, TypeScript, JavaScript, Python, Rust, Go, Java, C++, Swift, Kotlin, PHP, and Ruby.
   - Dynamic time-boundary calculation: Last 7 days or Last 30 days.
-  - Multiple sorting metrics: Most stars, Most forks, and Recently created.
+  - Multiple sorting metrics: Most stars, Most forks, and Recently updated.
   - Instant client-side search filtering across repository names, owners, and descriptions without repetitive network roundtrips.
   - Expandable results grid displaying up to 12 repositories per search view.
 - **Status & Transparency Indicators:**
   - Real-time data state indicator: distinguishes fresh API data, 10-minute local cached entries, and stale fallbacks.
   - Manual cache bypass refresh button with request deduplication and concurrent click prevention.
   - Graceful rate-limit detection explaining the 60 requests/hour unauthenticated threshold with interactive retries.
-- **Developer SaaS Design System:**
-  - Scoped CSS Modules with custom radar sweep visual, concentric grid rings, and glowing coordinates.
-  - Accessible keyboard navigation and mobile-responsive drawer.
-  - Dark-mode aesthetic inspired by Linear and Raycast.
+- **Responsive interface:**
+  - Scoped CSS Modules, a mobile navigation drawer, touch-friendly controls, and reduced-motion support.
+  - Keyboard focus indicators and semantic labels for interactive controls.
 
 ---
 
@@ -44,7 +43,7 @@ RepoRadar solves a persistent problem for developers: finding innovative new ope
 > GitHub does not expose an official trending repositories API. RepoRadar defines rising repositories as public repositories created within the selected time window, ranked by their total GitHub star count. This ranking does not represent the number of stars gained during that time window.
 
 ### Discovery Pipeline:
-1. **Dynamic Time Horizon:** Derives an exact ISO 8601 calendar cutoff (e.g. `created:>=YYYY-MM-DD`).
+1. **Dynamic Time Horizon:** Derives a calendar-date cutoff (e.g. `created:>=YYYY-MM-DD`) for the selected 7- or 30-day window.
 2. **REST Query Execution:** Queries GitHub's `/search/repositories` API with the requested language qualifier and sorting parameters.
 3. **Cumulative Metric Ordering:** Ranks results by cumulative stargazers or fork volume to elevate standout projects.
 4. **Local TTL Caching:** Stores verified payloads in `localStorage` for 10 minutes to protect client IP rate quotas.
@@ -66,9 +65,9 @@ GitHub's unauthenticated REST API allows up to **60 requests per hour per origin
 
 ## 6. Technologies Used
 
-- **Framework:** Next.js 16 (App Router) with React 19 & TypeScript 5
-- **Styling:** Scoped CSS Modules (`*.module.css`) for animations and component layouts + Tailwind CSS v4 design tokens (`globals.css`)
-- **UI Primitives & Motion:** `@base-ui/react`, `class-variance-authority`, `clsx`, `tailwind-merge`, Framer Motion, and GSAP
+- **Framework:** Next.js 16 (App Router) with React 19 and JavaScript (ES modules, JSX)
+- **Styling:** Scoped CSS Modules (`*.module.css`) and Tailwind CSS v4
+- **Utilities & Motion:** `clsx`, `tailwind-merge`, and Framer Motion
 - **Icons:** `lucide-react`
 - **Data Source:** GitHub REST API v3 (`https://api.github.com/search/repositories`)
 
@@ -83,9 +82,6 @@ src/
 │   ├── layout.jsx                        # Root layout, fonts & OpenGraph metadata
 │   └── page.jsx                          # RSC landing page aggregating all sections
 ├── components/                           # Strictly encapsulated component folders
-├── hooks/                                # Global, shared utility hooks
-│   ├── useIsMobile.js                    # SSR-safe viewport hook
-│   └── useReducedMotion.js               # SSR-safe reduced motion preference hook
 └── lib/                                  # Core business logic, cache, API & utilities
     ├── cache.js                          # LocalStorage TTL cache manager
     ├── constants.js                      # Languages, query defaults & URLs
@@ -124,15 +120,25 @@ npm run start
 npm run lint
 ```
 
+### Engineering conventions
+- Keep application code in JavaScript and JSX; do not introduce TypeScript files or type-checking dependencies.
+- Keep styles scoped to component CSS Modules unless a token or reset belongs in `src/app/globals.css`.
+- Keep GitHub API and cache behavior in `src/lib/`; keep view state in focused React hooks.
+- Use semantic HTML, keyboard-visible focus, reduced-motion support, and controls that remain usable on touch screens.
+- Before submitting changes, run `npm run lint` and `npm run build`.
+
 ---
 
 ## 9. Limitations & Future Scope
 
 ### Current Limitations:
 - Unauthenticated GitHub API calls are subject to the 60 requests/hour IP limit.
-- Sorting applies to the top results retrieved from the GitHub search endpoint.
+- The explorer requests up to 12 repositories per query; sorting and text filtering operate on that result set.
+- Repository totals and stars are current GitHub values, not historical growth measurements.
+- The browser calls GitHub directly, so API availability and rate limits are controlled by GitHub.
 
 ### Future Improvements (Not in Initial Scope):
 - Local repository bookmarking using `localStorage`.
 - Historical repository analytics with backend-recorded star velocity snapshots.
 - Language ecosystem trend breakdowns and comparison tools.
+- A server-side proxy or authenticated integration if product scale requires centralized quotas or additional data sources.

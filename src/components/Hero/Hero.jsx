@@ -82,7 +82,7 @@ export function Hero() {
           <div className={styles.languageTrack}>
             {[...LANGUAGES, ...LANGUAGES].map(({ name, icon }, index) => (
               <div className={styles.language} key={`${name}-${index}`} aria-hidden={index >= LANGUAGES.length}>
-                <img src={`/language-logos/${icon}.svg`} alt="" />
+                <Image src={`/language-logos/${icon}.svg`} alt="" width={38} height={38} />
                 <span>{name}</span>
               </div>
             ))}
