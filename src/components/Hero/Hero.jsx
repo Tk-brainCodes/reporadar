@@ -1,11 +1,94 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from "react";
-import { ArrowDown } from "lucide-react";
+"use client";
+
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import styles from "./Hero.module.css";
-import { Button } from "@/components/Button";
-import { Badge } from "@/components/Badge";
-import { RadarVisual } from "@/components/RadarVisual";
-import { cn } from "@/lib/utils";
-export function Hero({ className }) {
-    return (_jsx("section", { className: cn(styles.hero, className), id: "product", children: _jsxs("div", { className: styles.container, children: [_jsxs("div", { className: styles.content, children: [_jsx("div", { className: styles.eyebrowWrapper, children: _jsx(Badge, { variant: "radar", size: "md", dot: true, children: "THE OPEN SOURCE DISCOVERY RADAR" }) }), _jsxs("h1", { className: styles.headline, children: ["Find the next big thing", " ", _jsx("span", { className: styles.headlineGradient, children: "in open source." })] }), _jsx("p", { className: styles.description, children: "Discover emerging GitHub projects, explore innovative developer tools, and find your next favorite repository before everyone else." }), _jsxs("div", { className: styles.ctaGroup, children: [_jsx(Button, { variant: "primary", size: "lg", href: "#explorer", rightIcon: _jsx(ArrowDown, { className: "w-4 h-4" }), children: "Explore rising repositories" }), _jsx(Button, { variant: "secondary", size: "lg", href: "#how-it-works", children: "How it works" })] }), _jsxs("div", { className: styles.metaNotice, children: [_jsx("span", { className: styles.metaNoticeDot, "aria-hidden": "true" }), _jsx("span", { children: "Scanning live public repositories across 12 tech ecosystems" })] })] }), _jsx("div", { className: styles.visualWrapper, children: _jsx(RadarVisual, {}) })] }) }));
+import { useRepositories } from "@/components/RepositoryExplorer/useRepositories";
+
+const LANGUAGES = [
+  { name: "JavaScript", icon: "javascript" },
+  { name: "Python", icon: "python" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Rust", icon: "rust" },
+  { name: "Go", icon: "go" },
+  { name: "Java", icon: "java" },
+  { name: "C++", icon: "cplusplus" },
+  { name: "Swift", icon: "swift" },
+  { name: "Kotlin", icon: "kotlin" },
+  { name: "PHP", icon: "php" },
+  { name: "Ruby", icon: "ruby" },
+];
+const FALLBACK_AVATARS = ["01", "02", "03", "04"];
+
+export function Hero() {
+  const [feed] = useRepositories();
+  const owners = [...new Map(
+    feed.repositories
+      .filter((repository) => repository.owner?.avatar_url)
+      .map((repository) => [repository.owner.login, repository.owner]),
+  ).values()].slice(0, 4);
+
+  return (
+    <section className={styles.hero} id="product" aria-labelledby="hero-title">
+      <div className={styles.heroInner}>
+        <div className={styles.content}>
+          <h1 className={styles.headline} id="hero-title">
+            <span>Find what’s new</span>
+            <em>in open source.</em>
+          </h1>
+          <p className={styles.description}>
+            Explore newly created GitHub repositories by language and date. Find a project, tool, or idea worth your attention.
+          </p>
+
+          <div className={styles.actions}>
+            <a className={styles.cta} href="#explorer">
+              <span>Explore repositories</span>
+              <span className={styles.ctaIcon}><ArrowUpRight aria-hidden="true" /></span>
+            </a>
+
+            <div className={styles.ownerCard} role="group" aria-label="Explore open-source project creators">
+              <div className={styles.avatarStack} aria-hidden="true">
+                {owners.length > 0 ? owners.map((owner) => (
+                  <Image
+                    key={owner.login}
+                    src={owner.avatar_url}
+                    alt=""
+                    width={48}
+                    height={48}
+                    unoptimized
+                    className={styles.avatar}
+                  />
+                )) : FALLBACK_AVATARS.map((avatar) => (
+                  <Image
+                    key={avatar}
+                    src={`/language-logos/avatar-${avatar}.jpg`}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className={styles.avatar}
+                  />
+                ))}
+              </div>
+              <div className={styles.ownerCopy}>
+                <strong>Open source, in motion</strong>
+                <span>Discover projects from across GitHub</span>
+              </div>
+              <ArrowUpRight aria-hidden="true" className={styles.ownerArrow} />
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.brandSlider} role="group" aria-label="Supported programming languages">
+          <div className={styles.languageTrack}>
+            {[...LANGUAGES, ...LANGUAGES].map(({ name, icon }, index) => (
+              <div className={styles.language} key={`${name}-${index}`} aria-hidden={index >= LANGUAGES.length}>
+                <img src={`/language-logos/${icon}.svg`} alt="" />
+                <span>{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

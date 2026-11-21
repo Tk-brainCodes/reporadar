@@ -1,10 +1,24 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from "react";
-import { Layers, Calendar, Database, ShieldCheck } from "lucide-react";
 import styles from "./Stats.module.css";
-import { cn } from "@/lib/utils";
 import { LANGUAGES } from "@/lib/constants";
-export function Stats({ className }) {
-    const languageCount = LANGUAGES.length;
-    return (_jsx("section", { className: cn(styles.statsSection, className), "aria-label": "System configuration statistics", children: _jsxs("div", { className: styles.container, children: [_jsxs("div", { className: styles.statItem, children: [_jsxs("span", { className: styles.label, children: [_jsx(Database, { className: "w-4 h-4 text-[#fca311]" }), "Data Source"] }), _jsx("span", { className: styles.value, children: "GitHub API" }), _jsx("span", { className: styles.caption, children: "Public REST API v3" })] }), _jsxs("div", { className: styles.statItem, children: [_jsxs("span", { className: styles.label, children: [_jsx(Layers, { className: "w-4 h-4 text-[#fca311]" }), "Languages"] }), _jsx("span", { className: styles.value, children: languageCount }), _jsx("span", { className: styles.caption, children: "Curated top ecosystems" })] }), _jsxs("div", { className: styles.statItem, children: [_jsxs("span", { className: styles.label, children: [_jsx(Calendar, { className: "w-4 h-4 text-[#fca311]" }), "Time Windows"] }), _jsx("span", { className: styles.value, children: "7d & 30d" }), _jsx("span", { className: styles.caption, children: "Recent creation scan" })] }), _jsxs("div", { className: styles.statItem, children: [_jsxs("span", { className: styles.label, children: [_jsx(ShieldCheck, { className: "w-4 h-4 text-[#fca311]" }), "Live Buffer"] }), _jsx("span", { className: styles.value, children: "10 min" }), _jsx("span", { className: styles.caption, children: "Local cache duration" })] })] }) }));
+
+const FACTS = [
+  { value: String(LANGUAGES.length - 1), label: "languages" },
+  { value: "7 / 30 days", label: "creation windows" },
+  { value: "10 minutes", label: "local cache" },
+  { value: "GitHub REST API v3", label: "data source" },
+];
+
+export function Stats() {
+  return (
+    <section className={styles.statsSection} aria-label="RepoRadar at a glance">
+      <div className={styles.container}>
+        {FACTS.map((fact) => (
+          <div className={styles.statItem} key={fact.label}>
+            <span className={styles.value}>{fact.value}</span>
+            <span className={styles.label}>{fact.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }

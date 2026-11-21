@@ -1,31 +1,34 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from "react";
-import { Sparkles, Terminal, Globe, Zap } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Languages, LockKeyhole, Star } from "lucide-react";
 import styles from "./Features.module.css";
-import { Badge } from "@/components/Badge";
-import { cn } from "@/lib/utils";
+
 const FEATURES = [
-    {
-        title: "Early Discovery",
-        description: "Explore newly created repositories before they become widely known.",
-        icon: _jsx(Sparkles, { className: "w-5 h-5 text-[#fca311]" }),
-    },
-    {
-        title: "Language-Specific Discovery",
-        description: "Focus on the programming languages and ecosystems you care about.",
-        icon: _jsx(Terminal, { className: "w-5 h-5 text-[#fca311]" }),
-    },
-    {
-        title: "Live GitHub Data",
-        description: "Discover projects using information retrieved directly from GitHub.",
-        icon: _jsx(Globe, { className: "w-5 h-5 text-[#fca311]" }),
-    },
-    {
-        title: "Zero Friction",
-        description: "No account, subscription, or GitHub authentication required.",
-        icon: _jsx(Zap, { className: "w-5 h-5 text-[#fca311]" }),
-    },
+  { title: "Choose a date window", description: "Look at repositories created in the last 7 or 30 days.", icon: CalendarDays },
+  { title: "Filter by language", description: "Narrow the feed across 11 supported languages.", icon: Languages },
+  { title: "Sort your way", description: "Compare total stars, forks, or recent updates.", icon: Star },
+  { title: "Open access", description: "No account or GitHub sign-in is needed.", icon: LockKeyhole },
 ];
-export function Features({ className }) {
-    return (_jsx("section", { className: cn(styles.section, className), id: "features", children: _jsxs("div", { className: styles.container, children: [_jsxs("div", { className: styles.header, children: [_jsx(Badge, { variant: "outline", size: "sm", children: "ADVANTAGES" }), _jsx("h2", { className: styles.title, children: "Why RepoRadar" }), _jsx("p", { className: styles.subtitle, children: "Purpose-built intelligence designed for developers who value staying ahead of open-source innovation." })] }), _jsx("div", { className: styles.grid, children: FEATURES.map((item) => (_jsxs("div", { className: styles.featureCard, children: [_jsx("div", { className: styles.iconWrapper, children: item.icon }), _jsx("h3", { className: styles.featureTitle, children: item.title }), _jsx("p", { className: styles.featureDescription, children: item.description })] }, item.title))) })] }) }));
+
+export function Features() {
+  return (
+    <section className={styles.section} id="features">
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h2 className={styles.title}>The filters do the work.</h2>
+          <p className={styles.subtitle}>Move from a broad scan to a useful shortlist without leaving the feed.</p>
+          <a className={styles.detailLink} href="#explorer">Use the repository filters <ArrowUpRight aria-hidden="true" /></a>
+        </header>
+        <div className={styles.grid}>
+          {FEATURES.map(({ title, description, icon: Icon }) => (
+            <article className={styles.feature} key={title}>
+              <Icon aria-hidden="true" className={styles.icon} />
+              <div>
+                <h3 className={styles.featureTitle}>{title}</h3>
+                <p className={styles.featureDescription}>{description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

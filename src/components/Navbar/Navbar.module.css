@@ -1,134 +1,91 @@
 .header {
   position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 50;
-  transition: all 0.25s ease;
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
+  background: rgba(0, 0, 0, 0.94);
+  border-bottom: 1px solid rgba(229, 229, 229, 0.12);
 }
 
-.scrolled {
-  background-color: rgba(0, 0, 0, 0.92);
-  border-bottom-color: var(--color-border);
-}
+.scrolled { background: rgba(0, 0, 0, 0.98); }
 
 .container {
-  max-width: 1200px;
+  width: min(calc(100% - 64px), 1280px);
+  min-height: 72px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 32px;
 }
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
+  gap: 10px;
   color: var(--color-text-primary);
-  font-weight: 700;
-  font-size: 1.125rem;
-  letter-spacing: -0.01em;
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.logoIcon {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.5rem;
-  background: linear-gradient(135deg, rgba(252, 163, 17, 0.2), rgba(252, 163, 17, 0.05));
-  border: 1px solid rgba(252, 163, 17, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-accent);
-}
+.brandMark { width: 21px; height: 21px; color: var(--color-accent); stroke-width: 1.8; }
 
-.navLinks {
-  display: none;
-  align-items: center;
-  gap: 2rem;
-}
+.navLinks, .actions { display: flex; align-items: center; }
+.navLinks { gap: clamp(20px, 3vw, 42px); }
+.actions { gap: 22px; }
 
-@media (min-width: 768px) {
-  .navLinks {
-    display: flex;
-  }
-}
-
-.navLink {
+.navLink, .githubLink {
   color: var(--color-text-secondary);
+  font-size: 0.84rem;
   text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: color 0.15s ease;
+  transition: color 160ms ease;
 }
 
-.navLink:hover {
-  color: var(--color-text-primary);
-}
+.navLink:hover, .githubLink:hover { color: var(--color-text-primary); }
 
-.navActions {
-  display: none;
-  align-items: center;
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .navActions {
-    display: flex;
-  }
-}
+.githubLink { display: inline-flex; align-items: center; gap: 5px; }
+.githubLink svg { width: 13px; height: 13px; }
 
 .menuButton {
-  display: flex;
+  display: none;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
-  background: transparent;
   border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: transparent;
   color: var(--color-text-primary);
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-@media (min-width: 768px) {
-  .menuButton {
-    display: none;
-  }
-}
-
-.menuButton:hover {
-  background-color: var(--color-surface-hover);
-}
+.menuButton svg { width: 19px; height: 19px; }
 
 .mobileDrawer {
-  position: fixed;
-  top: 4.5rem;
-  left: 0;
-  right: 0;
-  background-color: rgba(20, 33, 61, 0.98);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--color-border);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  z-index: 49;
+  display: none;
+  padding: 10px 22px 24px;
+  border-top: 1px solid var(--color-border-subtle);
+  background: var(--color-bg);
 }
 
-.mobileNavLink {
+.mobileDrawer > a {
+  display: block;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
   color: var(--color-text-primary);
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.mobileDrawer > :last-child { margin-top: 18px; }
+
+@media (max-width: 820px) {
+  .container { width: calc(100% - 44px); min-height: 64px; }
+  .navLinks, .actions { display: none; }
+  .menuButton { display: inline-flex; }
+  .mobileDrawer { display: flex; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink, .githubLink { transition: none; }
 }

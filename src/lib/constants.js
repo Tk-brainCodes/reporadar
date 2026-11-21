@@ -19,7 +19,7 @@ export const TIME_WINDOWS = [
 export const SORT_OPTIONS = [
     { label: "Most stars", value: "stars" },
     { label: "Most forks", value: "forks" },
-    { label: "Recently created", value: "created" },
+    { label: "Recently updated", value: "updated" },
 ];
 export const DEFAULT_QUERY_CONFIG = {
     timeWindow: "7d",

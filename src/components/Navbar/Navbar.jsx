@@ -1,13 +1,55 @@
 "use client";
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from "react";
+
 import Link from "next/link";
-import { Radar, Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Menu, Radar, X } from "lucide-react";
 import styles from "./Navbar.module.css";
 import { useNavbar } from "./useNavbar";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/utils";
-export function Navbar({ className }) {
-    const { isOpen, isScrolled, toggleMenu, closeMenu } = useNavbar();
-    return (_jsxs("header", { className: cn(styles.header, isScrolled && styles.scrolled, className), children: [_jsxs("div", { className: styles.container, children: [_jsxs(Link, { href: "/", className: styles.brand, onClick: closeMenu, children: [_jsx("span", { className: styles.logoIcon, "aria-hidden": "true", children: _jsx(Radar, { className: "w-4 h-4 text-[#fca311]" }) }), _jsx("span", { children: "RepoRadar" })] }), _jsxs("nav", { className: styles.navLinks, "aria-label": "Main navigation", children: [_jsx("a", { href: "#product", className: styles.navLink, children: "Product" }), _jsx("a", { href: "#how-it-works", className: styles.navLink, children: "How it works" }), _jsx("a", { href: "#methodology", className: styles.navLink, children: "Methodology" }), _jsxs("a", { href: "https://github.com/topics/awesome", target: "_blank", rel: "noopener noreferrer", className: cn(styles.navLink, "inline-flex items-center gap-1"), children: ["GitHub", _jsx(ArrowUpRight, { className: "w-3.5 h-3.5 opacity-60" })] })] }), _jsx("div", { className: styles.navActions, children: _jsx(Button, { variant: "primary", size: "sm", href: "#explorer", children: "Explore repositories" }) }), _jsx("button", { type: "button", className: styles.menuButton, onClick: toggleMenu, "aria-expanded": isOpen, "aria-label": isOpen ? "Close menu" : "Open menu", children: isOpen ? _jsx(X, { className: "w-5 h-5" }) : _jsx(Menu, { className: "w-5 h-5" }) })] }), isOpen && (_jsxs("div", { className: styles.mobileDrawer, children: [_jsx("a", { href: "#product", className: styles.mobileNavLink, onClick: closeMenu, children: "Product" }), _jsx("a", { href: "#how-it-works", className: styles.mobileNavLink, onClick: closeMenu, children: "How it works" }), _jsx("a", { href: "#methodology", className: styles.mobileNavLink, onClick: closeMenu, children: "Methodology" }), _jsx("a", { href: "https://github.com/topics/awesome", target: "_blank", rel: "noopener noreferrer", className: styles.mobileNavLink, onClick: closeMenu, children: "GitHub" }), _jsx("div", { className: "pt-2", children: _jsx(Button, { variant: "primary", size: "md", href: "#explorer", className: "w-full", onClick: closeMenu, children: "Explore repositories" }) })] }))] }));
+
+export function Navbar() {
+  const { isOpen, isScrolled, toggleMenu, closeMenu } = useNavbar();
+
+  return (
+    <header className={cn(styles.header, isScrolled && styles.scrolled)}>
+      <div className={styles.container}>
+        <Link href="/" className={styles.brand} onClick={closeMenu} aria-label="RepoRadar home">
+          <Radar aria-hidden="true" className={styles.brandMark} />
+          <span>RepoRadar</span>
+        </Link>
+
+        <nav className={styles.navLinks} aria-label="Main navigation">
+          <a href="#explorer" className={styles.navLink}>Repository feed</a>
+          <a href="#how-it-works" className={styles.navLink}>How it works</a>
+          <a href="#methodology" className={styles.navLink}>Methodology</a>
+        </nav>
+
+        <div className={styles.actions}>
+          <a className={styles.githubLink} href="https://github.com/topics/awesome" target="_blank" rel="noreferrer">
+            GitHub <ArrowUpRight aria-hidden="true" />
+          </a>
+          <Button variant="primary" size="sm" href="#explorer">Browse feed</Button>
+        </div>
+
+        <button
+          className={styles.menuButton}
+          type="button"
+          onClick={toggleMenu}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close navigation" : "Open navigation"}
+        >
+          {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </button>
+      </div>
+
+      {isOpen && (
+        <nav className={styles.mobileDrawer} aria-label="Mobile navigation">
+          <a href="#explorer" onClick={closeMenu}>Repository feed</a>
+          <a href="#how-it-works" onClick={closeMenu}>How it works</a>
+          <a href="#methodology" onClick={closeMenu}>Methodology</a>
+          <Button variant="primary" size="md" href="#explorer" onClick={closeMenu}>Browse feed</Button>
+        </nav>
+      )}
+    </header>
+  );
 }

@@ -14,7 +14,7 @@ export function buildGitHubQuery(params) {
     }
     const searchParams = new URLSearchParams({
         q: queryParts.join(" "),
-        sort: params.sort === "forks" ? "forks" : params.sort === "created" ? "updated" : "stars",
+        sort: params.sort === "forks" ? "forks" : params.sort === "updated" ? "updated" : "stars",
         order: "desc",
         per_page: String(params.perPage),
     });

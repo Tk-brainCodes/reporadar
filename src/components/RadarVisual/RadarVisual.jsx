@@ -1,7 +1,49 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from "react";
 import styles from "./RadarVisual.module.css";
-import { cn } from "@/lib/utils";
-export function RadarVisual({ className }) {
-    return (_jsxs("div", { className: cn(styles.container, className), "aria-hidden": "true", children: [_jsx("div", { className: styles.radarGlow }), _jsxs("svg", { viewBox: "0 0 400 400", className: styles.radarSvg, fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [_jsxs("defs", { children: [_jsxs("radialGradient", { id: "sweepGradient", cx: "200", cy: "200", r: "190", gradientUnits: "userSpaceOnUse", children: [_jsx("stop", { offset: "0%", stopColor: "#fca311", stopOpacity: "0.35" }), _jsx("stop", { offset: "100%", stopColor: "#fca311", stopOpacity: "0" })] }), _jsxs("linearGradient", { id: "gridLines", x1: "0", y1: "0", x2: "400", y2: "400", children: [_jsx("stop", { offset: "0%", stopColor: "#14213d", stopOpacity: "0.8" }), _jsx("stop", { offset: "100%", stopColor: "#14213d", stopOpacity: "0.4" })] })] }), _jsx("circle", { cx: "200", cy: "200", r: "190", stroke: "#14213d", strokeWidth: "1" }), _jsx("circle", { cx: "200", cy: "200", r: "140", stroke: "#14213d", strokeWidth: "1", strokeDasharray: "4 4" }), _jsx("circle", { cx: "200", cy: "200", r: "90", stroke: "#14213d", strokeWidth: "1" }), _jsx("circle", { cx: "200", cy: "200", r: "40", stroke: "#14213d", strokeWidth: "1", strokeDasharray: "3 3" }), _jsx("line", { x1: "10", y1: "200", x2: "390", y2: "200", stroke: "#14213d", strokeWidth: "1" }), _jsx("line", { x1: "200", y1: "10", x2: "200", y2: "390", stroke: "#14213d", strokeWidth: "1" }), _jsx("line", { x1: "66", y1: "66", x2: "334", y2: "334", stroke: "#14213d", strokeWidth: "1", strokeDasharray: "2 4" }), _jsx("line", { x1: "66", y1: "334", x2: "334", y2: "66", stroke: "#14213d", strokeWidth: "1", strokeDasharray: "2 4" }), _jsxs("g", { className: styles.sweepBeam, children: [_jsx("path", { d: "M 200 200 L 200 10 A 190 190 0 0 1 334 66 Z", fill: "url(#sweepGradient)" }), _jsx("line", { x1: "200", y1: "200", x2: "200", y2: "10", stroke: "#fca311", strokeWidth: "1.5" })] }), _jsx("circle", { cx: "280", cy: "110", r: "4", fill: "#fca311" }), _jsx("circle", { cx: "280", cy: "110", r: "4", stroke: "#fca311", strokeWidth: "1", className: cn(styles.blip, styles.blipDelay1), fill: "none" }), _jsx("circle", { cx: "120", cy: "290", r: "3.5", fill: "#fca311" }), _jsx("circle", { cx: "120", cy: "290", r: "3.5", stroke: "#fca311", strokeWidth: "1", className: cn(styles.blip, styles.blipDelay2), fill: "none" }), _jsx("circle", { cx: "290", cy: "270", r: "3", fill: "#fca311" }), _jsx("circle", { cx: "290", cy: "270", r: "3", stroke: "#fca311", strokeWidth: "1", className: cn(styles.blip, styles.blipDelay3), fill: "none" }), _jsx("circle", { cx: "200", cy: "200", r: "5", fill: "#fca311" })] }), _jsxs("div", { className: cn(styles.previewBadge, styles.previewBadge1), children: [_jsx("span", { className: styles.badgeRepo, children: "vector-db/nano" }), _jsx("span", { className: styles.badgeStar, children: "\u2605 840" })] }), _jsxs("div", { className: cn(styles.previewBadge, styles.previewBadge2), children: [_jsx("span", { className: styles.badgeRepo, children: "rust-agent/core" }), _jsx("span", { className: styles.badgeStar, children: "\u2605 1.2k" })] })] }));
+
+export function RadarVisual() {
+  return (
+    <div className={styles.visual} role="group" aria-label="How RepoRadar searches GitHub">
+      <div className={styles.visualHeader}>
+        <span className={styles.visualTitle}>Search model</span>
+        <span className={styles.source}><span aria-hidden="true" /> GitHub REST API v3</span>
+      </div>
+      <svg className={styles.radar} viewBox="0 0 440 330" fill="none" aria-hidden="true">
+        <defs>
+          <radialGradient id="radar-wash" cx="0" cy="0" r="1" gradientTransform="translate(220 165) rotate(90) scale(152)">
+            <stop stopColor="#FCA311" stopOpacity=".12" />
+            <stop offset="1" stopColor="#FCA311" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="radar-sweep" x1="220" y1="165" x2="368" y2="72" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#FCA311" stopOpacity=".02" />
+            <stop offset="1" stopColor="#FCA311" stopOpacity=".34" />
+          </linearGradient>
+        </defs>
+        <circle cx="220" cy="165" r="148" fill="url(#radar-wash)" />
+        <circle cx="220" cy="165" r="148" stroke="rgba(229,229,229,.16)" />
+        <circle cx="220" cy="165" r="108" stroke="rgba(229,229,229,.12)" />
+        <circle cx="220" cy="165" r="68" stroke="rgba(229,229,229,.12)" />
+        <circle cx="220" cy="165" r="28" stroke="rgba(229,229,229,.1)" />
+        <path d="M72 165h296M220 17v296M115 60l210 210M115 270 325 60" stroke="rgba(229,229,229,.08)" />
+        <g className={styles.sweep}>
+          <path d="M220 165 368 72a148 148 0 0 1 0 186L220 165Z" fill="url(#radar-sweep)" />
+          <path d="M220 165 368 72" stroke="#FCA311" strokeOpacity=".8" />
+        </g>
+        <circle cx="302" cy="109" r="4" fill="#FCA311" />
+        <circle cx="151" cy="211" r="3" fill="#E5E5E5" />
+        <circle cx="278" cy="239" r="3" fill="#FCA311" />
+        <circle cx="220" cy="165" r="5" fill="#FCA311" />
+      </svg>
+      <div className={styles.visualFooter}>
+        <div className={styles.queryBlock}>
+          <span className={styles.metaLabel}>Creation window</span>
+          <span className={styles.metaValue}>Last 7 or 30 days</span>
+        </div>
+        <div className={styles.queryBlock}>
+          <span className={styles.metaLabel}>Default ranking</span>
+          <span className={styles.metaValue}>Total stars</span>
+        </div>
+        <div className={styles.queryMark} aria-hidden="true">RR<span>/</span>01</div>
+      </div>
+    </div>
+  );
 }

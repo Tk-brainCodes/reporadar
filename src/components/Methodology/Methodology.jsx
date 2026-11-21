@@ -1,31 +1,45 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React from "react";
 import { Info } from "lucide-react";
 import styles from "./Methodology.module.css";
-import { Badge } from "@/components/Badge";
-import { cn } from "@/lib/utils";
-const PIPELINE_STEPS = [
-    {
-        step: "STEP 01",
-        title: "Dynamic Creation Window",
-        description: "Calculates an exact ISO 8601 boundary date (7 or 30 days back from current execution).",
-    },
-    {
-        step: "STEP 02",
-        title: "Public Search Query",
-        description: "Requests public GitHub repositories matching the creation threshold and language filter.",
-    },
-    {
-        step: "STEP 03",
-        title: "Cumulative Star Sorting",
-        description: "Sorts returned repositories in descending order by cumulative star count.",
-    },
-    {
-        step: "STEP 04",
-        title: "Client-Side Caching",
-        description: "Caches successful responses locally for 10 minutes to respect GitHub rate limits.",
-    },
+
+const STEPS = [
+  ["01", "Set a date boundary", "The selected window becomes a created-after date in the GitHub search query."],
+  ["02", "Request public repositories", "The query includes the chosen language and asks GitHub for matching public repositories."],
+  ["03", "Apply the selected sort", "Results are ordered by total stars, forks, or most recently updated."],
+  ["04", "Cache successful responses", "A successful response is saved in local storage for up to 10 minutes."],
 ];
-export function Methodology({ className }) {
-    return (_jsx("section", { className: cn(styles.section, className), id: "methodology", children: _jsxs("div", { className: styles.container, children: [_jsxs("div", { className: styles.header, children: [_jsx(Badge, { variant: "outline", size: "sm", children: "TRANSPARENCY" }), _jsx("h2", { className: styles.title, children: "Data methodology" }), _jsx("p", { className: styles.subtitle, children: "GitHub does not expose an official trending repositories API. Here is precisely how RepoRadar calculates and sources its discovery feeds." })] }), _jsxs("div", { className: styles.calloutBox, children: [_jsx(Info, { className: styles.calloutIcon }), _jsxs("div", { children: [_jsx("h3", { className: styles.calloutTitle, children: "Explicit Ranking Definition" }), _jsx("p", { className: styles.calloutText, children: "Rising repositories are repositories created within the selected time window, ranked by their total GitHub stars. This is not a measurement of stars gained during that period." })] })] }), _jsx("div", { className: styles.pipelineGrid, children: PIPELINE_STEPS.map((step) => (_jsxs("div", { className: styles.pipelineCard, children: [_jsx("span", { className: styles.pipelineStepNumber, children: step.step }), _jsx("h4", { className: styles.pipelineStepTitle, children: step.title }), _jsx("p", { className: styles.pipelineStepText, children: step.description })] }, step.step))) }), _jsxs("div", { className: styles.specsList, children: [_jsxs("div", { className: styles.specItem, children: [_jsx("span", { className: styles.specLabel, children: "API Provider" }), _jsx("span", { className: styles.specVal, children: "GitHub REST API v3" })] }), _jsxs("div", { className: styles.specItem, children: [_jsx("span", { className: styles.specLabel, children: "Rate Limit Policy" }), _jsx("span", { className: styles.specVal, children: "60 req/hr per originating IP" })] }), _jsxs("div", { className: styles.specItem, children: [_jsx("span", { className: styles.specLabel, children: "Local TTL Buffer" }), _jsx("span", { className: styles.specVal, children: "10 minutes localStorage" })] })] })] }) }));
+
+export function Methodology() {
+  return (
+    <section className={styles.section} id="methodology">
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h2 className={styles.title}>Know what “rising” means.</h2>
+          <p className={styles.subtitle}>
+            RepoRadar searches public GitHub repositories created during your chosen window. The ranking is explicit.
+          </p>
+        </header>
+
+        <div className={styles.definition}>
+          <Info aria-hidden="true" className={styles.infoIcon} />
+          <p><strong>Stars show total popularity.</strong> They do not measure stars gained during the selected window.</p>
+        </div>
+
+        <ol className={styles.pipeline}>
+          {STEPS.map(([number, title, description]) => (
+            <li className={styles.pipelineRow} key={number}>
+              <span className={styles.stepNumber}>{number}</span>
+              <h3 className={styles.stepTitle}>{title}</h3>
+              <p className={styles.stepText}>{description}</p>
+            </li>
+          ))}
+        </ol>
+
+        <dl className={styles.specs}>
+          <div><dt>Data source</dt><dd>GitHub REST API v3</dd></div>
+          <div><dt>Authentication</dt><dd>Unauthenticated public search</dd></div>
+          <div><dt>Cache duration</dt><dd>10 minutes in your browser</dd></div>
+        </dl>
+      </div>
+    </section>
+  );
 }
